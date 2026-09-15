@@ -13,10 +13,10 @@ Feed ID prefix: `google_...`
 
 ### Render Google Reviews with
 
-* [Attributes](https://claude.ai/delivery-methods/attributes), add Google Reviews to any HTML page
-* [React](https://claude.ai/delivery-methods/react), drop a component into your React app
-* [Framer](https://claude.ai/delivery-methods/framer), use the Google Reviews component in Framer
-* [API](https://claude.ai/delivery-methods/api), fetch Google Reviews data directly
+* [Attributes](../delivery-methods/attributes-html.md), add Google Reviews to any HTML page
+* [React](../delivery-methods/react-components.md), drop a component into your React app
+* [Framer](../delivery-methods/framer-components.md), use the Google Reviews component in Framer
+* [API](../delivery-methods/api-graphql.md), fetch Google Reviews data directly
 
 ### Post fields
 
@@ -29,7 +29,7 @@ Feed ID prefix: `google_...`
 | `feed-field="rating-string"` | `rating.string`   | string    | Rating as a word ("five", "four", etc.). Useful for human-readable output.                                            |
 | `feed-field="star"`          | `rating.number`   | repeater  | Active star template. FeedSpring clones this element once per rating point.                                           |
 | `feed-field="star-inactive"` | `rating.number`   | repeater  | Inactive star template. FeedSpring clones this element `5 - rating` times.                                            |
-| `feed-field="timestamp"`     | `createdAt`       | date-time | When the review was posted. See [timestamp formatting](https://claude.ai/delivery-methods/attributes#feed-timestamp). |
+| `feed-field="timestamp"`     | `createdAt`       | date-time | When the review was posted. See [timestamp formatting](../delivery-methods/attributes-html.md#feed-timestamp). |
 
 ### Profile fields
 
@@ -98,6 +98,6 @@ A carousel card using the attributes delivery method:
 
 ### Next steps
 
-* [Pick a delivery method](https://claude.ai/delivery-methods) to render Google Reviews
-* [Filtering & Limits](https://claude.ai/core-concepts/filtering-and-limits) for limit, skip, and dashboard filters
-* [Browse other feed sources](https://claude.ai/feeds)
+* [Pick a delivery method](../README.md#where-to-start) to render Google Reviews
+* [Filtering & Limits](../core-concepts/filtering-and-limits.md) for limit, skip, and dashboard filters
+* [Browse other feed sources](../README.md#what-this-documentation-covers)

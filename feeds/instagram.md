@@ -12,10 +12,10 @@ Feed ID prefix: `inst_...`
 
 ### Render Instagram with
 
-* [Attributes](https://claude.ai/delivery-methods/attributes), add Instagram to any HTML page
-* [React](https://claude.ai/delivery-methods/react), drop a component into your React app
-* [Framer](https://claude.ai/delivery-methods/framer), use the Instagram component in Framer
-* [API](https://claude.ai/delivery-methods/api), fetch Instagram data directly
+* [Attributes](../delivery-methods/attributes-html.md), add Instagram to any HTML page
+* [React](../delivery-methods/react-components.md), drop a component into your React app
+* [Framer](../delivery-methods/framer-components.md), use the Instagram component in Framer
+* [API](../delivery-methods/api-graphql.md), fetch Instagram data directly
 
 ### Post fields
 
@@ -27,7 +27,7 @@ Feed ID prefix: `inst_...`
 | `feed-field="caption"`       | `caption`      | string    | Post caption. Written with `innerHTML`, so HTML in the caption is rendered.                                            |
 | `feed-field="like-count"`    | `likeCount`    | number    | Number of likes, formatted with compact locale notation (e.g. `1.2K`).                                                 |
 | `feed-field="comment-count"` | `commentCount` | number    | Number of comments, formatted with compact locale notation.                                                            |
-| `feed-field="timestamp"`     | `timestamp`    | date-time | When the post was published. See [timestamp formatting](https://claude.ai/delivery-methods/attributes#feed-timestamp). |
+| `feed-field="timestamp"`     | `timestamp`    | date-time | When the post was published. See [timestamp formatting](../delivery-methods/attributes-html.md#feed-timestamp). |
 
 ### Profile fields
 
@@ -81,6 +81,6 @@ A basic Instagram grid using the attributes delivery method:
 
 ### Next steps
 
-* [Pick a delivery method](https://claude.ai/delivery-methods) to render Instagram
-* [Filtering & Limits](https://claude.ai/core-concepts/filtering-and-limits) for limit, skip, and dashboard filters
-* [Browse other feed sources](https://claude.ai/feeds)
+* [Pick a delivery method](../README.md#where-to-start) to render Instagram
+* [Filtering & Limits](../core-concepts/filtering-and-limits.md) for limit, skip, and dashboard filters
+* [Browse other feed sources](../README.md#what-this-documentation-covers)

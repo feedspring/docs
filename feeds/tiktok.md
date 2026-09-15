@@ -13,10 +13,10 @@ Feed ID prefix: `tiktok_...`
 
 ### Render TikTok with
 
-* [Attributes](https://claude.ai/delivery-methods/attributes), add TikTok to any HTML page
-* [React](https://claude.ai/delivery-methods/react), drop a component into your React app
-* [Framer](https://claude.ai/delivery-methods/framer), use the TikTok component in Framer
-* [API](https://claude.ai/delivery-methods/api), fetch TikTok data directly
+* [Attributes](../delivery-methods/attributes-html.md), add TikTok to any HTML page
+* [React](../delivery-methods/react-components.md), drop a component into your React app
+* [Framer](../delivery-methods/framer-components.md), use the TikTok component in Framer
+* [API](../delivery-methods/api-graphql.md), fetch TikTok data directly
 
 ### Post fields
 
@@ -32,7 +32,7 @@ Feed ID prefix: `tiktok_...`
 | `feed-field="like-count"`    | `likeCount`     | number            | Like count, formatted with compact locale notation.                                                                     |
 | `feed-field="comment-count"` | `commentCount`  | number            | Comment count, formatted with compact locale notation.                                                                  |
 | `feed-field="share-count"`   | `shareCount`    | number            | Share count.                                                                                                            |
-| `feed-field="timestamp"`     | `createTime`    | date-time         | When the video was published. See [timestamp formatting](https://claude.ai/delivery-methods/attributes#feed-timestamp). |
+| `feed-field="timestamp"`     | `createTime`    | date-time         | When the video was published. See [timestamp formatting](../delivery-methods/attributes-html.md#feed-timestamp). |
 
 ### Profile fields
 
@@ -112,6 +112,6 @@ A video grid using the attributes delivery method:
 
 ### Next steps
 
-* [Pick a delivery method](https://claude.ai/delivery-methods) to render TikTok
-* [Filtering & Limits](https://claude.ai/core-concepts/filtering-and-limits) for limit, skip, and dashboard filters
-* [Browse other feed sources](https://claude.ai/feeds)
+* [Pick a delivery method](../README.md#where-to-start) to render TikTok
+* [Filtering & Limits](../core-concepts/filtering-and-limits.md) for limit, skip, and dashboard filters
+* [Browse other feed sources](../README.md#what-this-documentation-covers)

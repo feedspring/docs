@@ -67,7 +67,7 @@ Skips the first N items before rendering, then `limit` caps how many of the rema
 <section feedspring="inst_..." feed-options="render:dynamic|limit:8|skip:1|lang:en-GB">
 ```
 
-For rendering options, see [Rendering Behaviour](https://claude.ai/core-concepts/rendering-behaviour).
+For rendering options, see [Rendering Behaviour](rendering-behaviour.md).
 
 ### Per-feed filtering examples
 

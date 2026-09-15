@@ -339,7 +339,7 @@ Attributes that work the same across feeds, mapping to different JSON keys:
 
 ### Next steps
 
-* [Attributes delivery method guide](https://claude.ai/delivery-methods/attributes)
-* [Per-feed field pages](https://claude.ai/feeds)
-* [Feed options reference](https://claude.ai/core-concepts/filtering-and-limits)
-* [Rendering modes](https://claude.ai/core-concepts/rendering-behaviour)
+* [Attributes delivery method guide](delivery-methods/attributes-html.md)
+* [Per-feed field pages](README.md#what-this-documentation-covers)
+* [Feed options reference](core-concepts/filtering-and-limits.md)
+* [Rendering modes](core-concepts/rendering-behaviour.md)

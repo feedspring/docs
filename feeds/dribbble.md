@@ -13,10 +13,10 @@ Feed ID prefix: `dribbble_...`
 
 ### Render Dribbble with
 
-* [Attributes](https://claude.ai/delivery-methods/attributes), add Dribbble to any HTML page
-* [React](https://claude.ai/delivery-methods/react), drop a component into your React app
-* [Framer](https://claude.ai/delivery-methods/framer), use the Dribbble component in Framer
-* [API](https://claude.ai/delivery-methods/api), fetch Dribbble data directly
+* [Attributes](../delivery-methods/attributes-html.md), add Dribbble to any HTML page
+* [React](../delivery-methods/react-components.md), drop a component into your React app
+* [Framer](../delivery-methods/framer-components.md), use the Dribbble component in Framer
+* [API](../delivery-methods/api-graphql.md), fetch Dribbble data directly
 
 ### Post fields
 
@@ -25,7 +25,7 @@ Feed ID prefix: `dribbble_...`
 | `feed-field="img"`       | `image`       | image URL | The shot image. Sets the `src` of an `<img>`.                                                                          |
 | `feed-field="link"`      | `url`         | URL       | Link to the shot on Dribbble. Sets the `href` of an `<a>`.                                                             |
 | `feed-field="title"`     | `title`       | string    | Shot title.                                                                                                            |
-| `feed-field="timestamp"` | `publishedAt` | date-time | When the shot was published. See [timestamp formatting](https://claude.ai/delivery-methods/attributes#feed-timestamp). |
+| `feed-field="timestamp"` | `publishedAt` | date-time | When the shot was published. See [timestamp formatting](../delivery-methods/attributes-html.md#feed-timestamp). |
 
 ### Profile fields
 
@@ -88,6 +88,6 @@ A portfolio grid using the attributes delivery method:
 
 ### Next steps
 
-* [Pick a delivery method](https://claude.ai/delivery-methods) to render Dribbble
-* [Filtering & Limits](https://claude.ai/core-concepts/filtering-and-limits) for limit, skip, and dashboard filters
-* [Browse other feed sources](https://claude.ai/feeds)
+* [Pick a delivery method](../README.md#where-to-start) to render Dribbble
+* [Filtering & Limits](../core-concepts/filtering-and-limits.md) for limit, skip, and dashboard filters
+* [Browse other feed sources](../README.md#what-this-documentation-covers)
