@@ -90,7 +90,7 @@ Confirm which behaviour the docs should describe (and whether the script is chan
 
 #### Hybrid layouts
 
-Combine both on the same page by using two wrappers pointing at the same feed. See the featured + grid example in [Filtering & Limits](feed-options.md).
+Combine both on the same page by using two wrappers pointing at the same feed. See the featured + grid example in [Feed Options](feed-options.md#examples).
 
 ### The `appear` option
 

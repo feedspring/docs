@@ -3,7 +3,7 @@ description: Build FeedSpring feeds visually in the Webflow Designer using custo
 icon: webflow
 ---
 
-# Webflow Components
+# Webflow
 
 Webflow is a first-class FeedSpring integration. Feeds are built using the Attributes system, added visually in the Webflow Designer — no code editor required. Add the script once, then apply `feedspring` and `feed-field` attributes to elements through the Designer's settings panel.
 
@@ -21,7 +21,7 @@ The three core attributes are the same everywhere:
 | `feedspring="post"`         | A repeating element inside the wrapper | Marks the template that repeats for each post      |
 | `feed-field="FIELD-NAME"`   | Any element inside a post              | Targets where a piece of content is injected       |
 
-For the full attribute model, rendering modes, and field behaviour, see [Attributes (HTML)](../attributes/overview.md).
+For the full attribute model, rendering modes, and field behaviour, see [Attributes](../attributes/overview.md).
 
 ### **Quick start**
 
@@ -75,7 +75,7 @@ Inside the post wrapper, add the elements you want (images, text, links) and giv
 * Name: `feed-field`
 * Value: the field name (e.g. `img`, `caption`, `timestamp`)
 
-Remember to place image fields on Image elements and link fields on Link elements — the element type determines the behaviour. See [Rendering Behaviour](../attributes/rendering.md) for the full element rules.
+Remember to place image fields on Image elements and link fields on Link elements — the element type determines the behaviour. See [Fields & Elements](../attributes/fields-and-elements.md) for the full element rules.
 
 #### **5. Publish**
 
@@ -96,7 +96,7 @@ Field names depend on the feed source. See the per-source pages for the full lis
 
 #### **Next steps**
 
-* [Attributes (HTML)](../attributes/overview.md) — the full attribute model
-* [Filtering & Limits](../attributes/feed-options.md) — `limit`, `skip`, and dashboard filters
-* [Rendering Behaviour](../attributes/rendering.md) — static vs dynamic, `appear`, locale
+* [Attributes](../attributes/overview.md) — the full attribute model
+* [Feed Options](../attributes/feed-options.md) — `limit`, `skip` and `lang`
+* [Rendering](../attributes/rendering.md) — static vs dynamic, `appear`
 * [Attributes Reference](../attributes/reference.md) — every field, for every source

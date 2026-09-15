@@ -101,8 +101,6 @@ All delivery methods use the same underlying feed data.
 
 Feeds generally display content from newest to oldest as provided by the source service. While the sort order cannot typically be changed, you can control which content appears by:
 
-This includes:
-
 * Limiting the number of items
 * Skipping specific posts
 * Applying keyword filters (Available for Google Reviews)
@@ -112,7 +110,7 @@ Some controls are applied:
 * In your layout (e.g. limit)
 * In your dashboard (e.g. filtering rules)
 
-👉 Learn more in [Filtering & Limits](../attributes/feed-options.md)
+👉 Learn more in [Filtering](filtering.md) and [Feed Options](../attributes/feed-options.md)
 
 <figure><img src="../.gitbook/assets/divider-blog.png" alt=""><figcaption></figcaption></figure>
 
@@ -130,22 +128,9 @@ This means:
 
 <figure><img src="../.gitbook/assets/divider-blog.png" alt=""><figcaption></figcaption></figure>
 
-### Plan Update Rates
+### Plan update rates
 
-Discover the post limits and update frequency for your feeds across each platform, based on your plan. This helps you understand how often your content refreshes and how many items are available.
-
-| Platform  | Free             | Personal         | Business        | Enterprise       |
-| --------- | ---------------- | ---------------- | --------------- | ---------------- |
-| Instagram | 8 posts (24 hrs) | 12 posts (6 hrs) | 12 posts (1 hr) | 12 posts (1 hr)  |
-| Google    | 8 posts (24 hrs) | 16 posts (6 hrs) | 32 posts (1 hr) | 200 posts (1 hr) |
-| TikTok    | 8 posts (24 hrs) | 16 posts (6 hrs) | 32 posts (1 hr) | 200 posts (1 hr) |
-| Dribbble  | 8 posts (24 hrs) | 16 posts (6 hrs) | 32 posts (1 hr) | 200 posts (1 hr) |
-
-{% hint style="info" %}
-Instagram is capped at 12 posts on every paid plan. This is a limit of the Instagram API, not of FeedSpring.
-
-Update frequency may vary slightly depending on the platform and availability of new content.
-{% endhint %}
+How many posts a feed holds and how often it refreshes depend on your plan. See [Plans](plans.md) for the full breakdown.
 
 <figure><img src="../.gitbook/assets/divider-blog.png" alt=""><figcaption></figcaption></figure>
 

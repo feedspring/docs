@@ -9,7 +9,7 @@ icon: hand-wave
 
 Connect a source like [Instagram](feeds/instagram.md), [Google Reviews](feeds/google-reviews.md), [TikTok](feeds/tiktok.md), or [Dribbble](feeds/dribbble.md), and FeedSpring handles the fetching, storing, syncing, and refreshing. You handle the design.
 
-Unlike traditional feed widgets, FeedSpring doesn't force a fixed UI. Instead, you choose a rendering system that fits your stack — [HTML Attributes](attributes/overview.md), [React Components](build-with/react-nextjs.md), or the [API](graphql-api/overview.md) — and render feeds any way you want.
+Unlike traditional feed widgets, FeedSpring doesn't force a fixed UI. Instead, you choose the method that fits your stack — [pre-made Framer components](build-with/framer.md), [Attributes](attributes/overview.md), or the [GraphQL API](graphql-api/overview.md) — and render feeds any way you want.
 
 The same feed powers every platform and rendering system.
 
@@ -17,26 +17,22 @@ The same feed powers every platform and rendering system.
 
 ### What this documentation covers
 
-FeedSpring has four core parts:
-
-* **Feed Sources:**
-  * [Instagram](feeds/instagram.md), [Google Reviews](feeds/google-reviews.md), [TikTok](feeds/tiktok.md) and [Dribbble](feeds/dribbble.md)
-* **Rendering Systems:**&#x20;
-  * [HTML Attributes](attributes/overview.md), [React Components](build-with/react-nextjs.md), and the [API](graphql-api/overview.md).
-* **Native Platform Integrations:**&#x20;
-  * [Webflow](build-with/webflow.md), [Framer](build-with/framer.md)
-* **Core concepts:**&#x20;
-  * [How feeds sync](core-concepts/feeds-and-syncing.md), [fields work](core-concepts/posts-and-fields.md), [rendering behaves](attributes/rendering.md), and how [content filtering](attributes/feed-options.md) works.
+* **Build with** — step-by-step guides for [Webflow](build-with/webflow.md), [Framer](build-with/framer.md), and [React & Next.js](build-with/react-nextjs.md).
+* **[GraphQL API](graphql-api/overview.md)** — fetch any feed as structured data.
+* **[Attributes](attributes/overview.md)** — build a feed into any HTML page.
+* **Feeds** — fields and queries for [Instagram](feeds/instagram.md), [Google Reviews](feeds/google-reviews.md), [TikTok](feeds/tiktok.md) and [Dribbble](feeds/dribbble.md).
+* **Core concepts** — how [feeds sync](core-concepts/feeds-and-syncing.md), how [fields work](core-concepts/posts-and-fields.md), [filtering](core-concepts/filtering.md), and [plans](core-concepts/plans.md).
 
 ### Where to start
 
-* New to FeedSpring? Follow the [Quickstart](getting-started/quickstart.md) to get a live feed in under two minutes.
-* Building in **Webflow or plain HTML?** See [Attributes](attributes/overview.md).
-* Building a **React or Next.js app?** See [React Components](build-with/react-nextjs.md).
-* Building in **Framer**? See [Framer Components](build-with/framer.md).
-* Want **raw data access?** See the [API](graphql-api/overview.md).
+* Not sure which method to use? See [Choose your setup](getting-started/choose-your-setup.md).
+* Want a live feed now? Follow the [Quickstart](getting-started/quickstart.md) to get one in under two minutes.
+* Building in **Webflow**? See [Webflow](build-with/webflow.md).
+* Building in **Framer**? See [Framer](build-with/framer.md).
+* Building a **React or Next.js app**? See [React & Next.js](build-with/react-nextjs.md).
+* Want **raw data**? See the [GraphQL API](graphql-api/overview.md).
 
-If you are an **AI coding agent** or using Claude, Cursor, or v0, the [Attribute Reference](attributes/reference.md) is the single-page spec designed for you.
+If you are an **AI coding agent** or using Claude, Cursor, or v0, the [Attributes Reference](attributes/reference.md) and the [GraphQL Schema Reference](graphql-api/schema-reference.md) are the complete specs.
 
 ### Support & Feedback <a href="#support-and-feedback" id="support-and-feedback"></a>
 

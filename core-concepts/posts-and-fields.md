@@ -141,15 +141,15 @@ Both can be used when building layouts.
 
 ### How fields are used
 
-No matter how you use FeedSpring:
+Every delivery method works with the same fields. Only the way you refer to them changes. For example, an Instagram post's image:
 
-* Attributes
-* React components
-* API
+| Method | How you use it |
+| --- | --- |
+| [Attributes](../attributes/overview.md) | `<img feed-field="img">` |
+| [GraphQL API](../graphql-api/overview.md) | `posts { nodes { image { url } } }` |
+| [Framer components](../build-with/framer.md) | Shown automatically, styled through property controls |
 
-You are always working with the same fields.
-
-Only the syntax changes.
+Each feed page lists every field with both its attribute name and its GraphQL field.
 
 <figure><img src="../.gitbook/assets/divider-blog.png" alt=""><figcaption></figcaption></figure>
 

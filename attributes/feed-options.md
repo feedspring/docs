@@ -72,7 +72,7 @@ Good for multilingual sites where you want the feed to match each visitor's brow
 <section feedspring="inst_..." feed-options="render:dynamic|limit:8|skip:1|lang:en-GB">
 ```
 
-For rendering options, see [Rendering Behaviour](rendering.md).
+For rendering options, see [Rendering](rendering.md).
 
 ### Examples
 

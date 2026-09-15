@@ -351,7 +351,7 @@ Confirm which behaviour the docs should describe (and whether the script is chan
 
 ### Next steps
 
-* [Attributes delivery method guide](overview.md)
+* [Attributes overview](overview.md)
 * [Per-feed field pages](../README.md#what-this-documentation-covers)
 * [Feed options reference](feed-options.md)
 * [Rendering modes](rendering.md)

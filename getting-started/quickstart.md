@@ -7,7 +7,7 @@ icon: book
 
 Get a live FeedSpring feed on your site in under 2 minutes.
 
-This example uses the **Attributes (HTML) method**, the fastest way to get started.
+This example uses [**Attributes**](../attributes/overview.md), the fastest way to get started.
 
 FeedSpring works the same across all feed types — Instagram, Google Reviews, TikTok and Dribbble.
 
@@ -121,18 +121,15 @@ FeedSpring looks for three things:
 
 ***
 
-### Using React, API, or Framer?
+### Using React, the API, or Framer?
 
-If you're not using Attributes (HTML) or Webflow:
-
-* **React or Next.js** → see [React Components](../build-with/react-nextjs.md)
-* **Framer** → see [Framer Components](../build-with/framer.md)
-* **Raw data access** → see the [API (GraphQL)](../graphql-api/overview.md)
+* **React or Next.js** → see [React & Next.js](../build-with/react-nextjs.md)
+* **Framer** → see [Framer](../build-with/framer.md)
+* **Raw data** → see the [GraphQL Quickstart](../graphql-api/quickstart.md)
+* **Not sure?** → see [Choose your setup](choose-your-setup.md)
 
 ***
 
 ### Plan update rates
 
-Post limits and refresh frequency depend on your plan and feed source.
-
-👉 See [Plan update rates](../core-concepts/feeds-and-syncing.md#plan-update-rates) in Feeds & Syncing for the full breakdown.
+Post limits and refresh frequency depend on your plan and feed source. See [Plans](../core-concepts/plans.md).

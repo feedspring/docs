@@ -1,71 +1,20 @@
 ---
-description: Pre-made React components with exposed props, plus how to build your own.
+description: Add FeedSpring feeds to React and Next.js apps with the GraphQL API or attributes.
 icon: react
 ---
 
-# React Components
+# React & Next.js
 
-FeedSpring components are standard React components. That matters for two audiences: Framer users, because Framer runs React components natively, and React or Next.js developers, who can drop the same components into an app.
+There are two ways to add a FeedSpring feed to a React or Next.js app. Both use the same feed data.
 
-Every component ships with its props exposed, so most people never write any code at all.
+|  | GraphQL API | Attributes |
+| --- | --- | --- |
+| Best for | Server rendering, SEO, caching, custom data handling | Client-rendered pages and the fastest setup |
+| Feed content in the page HTML | Yes | No |
+| What you write | A query and your own components | JSX with `feedspring` and `feed-field` attributes |
+| Works in React Server Components | Yes | No — load the script on the client |
 
-### Pre-made components
-
-Browse the full library at [feedspring.com/components](https://www.feedspring.com/components). Each one is a complete, styled layout — grid, slider, highlight, carousel — built for a specific feed source.
-
-Because the props are exposed, you can change how a component looks and behaves without touching the code:
-
-* Feed ID
-* Number of items and skip count
-* Font settings
-* Container and card settings
-* Image sizing and radius
-* Overlay and background colour
-* Text truncation
-
-In Framer these appear as property controls in the right-hand sidebar. In a React app they are ordinary component props.
-
-{% hint style="info" %}
-If you are building in Framer, start here. See [Framer Components](framer.md) for the step-by-step.
-{% endhint %}
-
-### Building your own
-
-If a pre-made component isn't the right shape and you want to write the layout yourself, you have two options. Both give you the same feed data.
-
-#### Option 1 — Attributes
-
-Load the attributes script for your feed source and write plain JSX with `feedspring` and `feed-field` attributes. FeedSpring fills them in on the client.
-
-This is the fastest route and needs no data layer.
-
-```jsx
-export default function InstagramGrid() {
-  return (
-    <section
-      feedspring="inst_YOUR-FEED-ID"
-      feed-options="render:dynamic|limit:8"
-    >
-      <article feedspring="post">
-        <img feed-field="img" alt="" />
-        <p feed-field="caption"></p>
-        <a feed-field="link" target="_blank" rel="noopener">View post</a>
-      </article>
-    </section>
-  )
-}
-```
-
-Things to know:
-
-* Load the script client-side only. In Next.js, use `next/script` with `strategy="afterInteractive"`, or load it in a `useEffect`.
-* Custom attributes pass through JSX as plain strings — write them exactly as shown.
-* Avoid adding the script more than once if the route remounts frequently.
-* This renders on the client, so feed content is not present in the server-rendered HTML. If you need the feed indexed for SEO, use the API instead.
-
-See [Attributes (HTML)](../attributes/overview.md) for the full attribute model.
-
-#### Option 2 — The GraphQL API
+### Option 1 — The GraphQL API
 
 Fetch the feed yourself and render it however you like. This is the right choice when you need server-side rendering, caching, SEO on feed content, or want to transform the data before it reaches your components.
 
@@ -120,22 +69,46 @@ Four things that catch people out:
 
 No API key is needed — the Feed ID is the credential and is safe to use in browser code.
 
-See [API (GraphQL)](../graphql-api/overview.md) for the full reference, image transforms, and error handling.
+See the [GraphQL API](../graphql-api/overview.md) for the full reference, image transforms, and error handling.
 
-### Which option to choose
+### Option 2 — Attributes
 
-|                          | Pre-made component | Attributes        | GraphQL API      |
-| ------------------------ | ------------------ | ----------------- | ---------------- |
-| Code required            | None               | Markup only       | Yes              |
-| Works in Framer          | Yes                | No                | Via a code component |
-| Custom layout            | Within the props   | Full              | Full             |
-| Server-side rendering    | No                 | No                | Yes              |
-| Feed content in page HTML for SEO | No        | No                | Yes              |
-| Data transformation      | No                 | No                | Yes              |
+Load the attributes script for your feed source and write plain JSX with `feedspring` and `feed-field` attributes. FeedSpring fills them in on the client.
+
+This is the fastest route and needs no data layer, but the feed renders in the browser, so its content is not in the server-rendered HTML.
+
+```jsx
+export default function InstagramGrid() {
+  return (
+    <section
+      feedspring="inst_YOUR-FEED-ID"
+      feed-options="render:dynamic|limit:8"
+    >
+      <article feedspring="post">
+        <img feed-field="img" alt="" />
+        <p feed-field="caption"></p>
+        <a feed-field="link" target="_blank" rel="noopener">View post</a>
+      </article>
+    </section>
+  )
+}
+```
+
+Things to know:
+
+* Load the script client-side only. In Next.js, use `next/script` with `strategy="afterInteractive"`, or load it in a `useEffect`.
+* Custom attributes pass through JSX as plain strings — write them exactly as shown.
+* Avoid adding the script more than once if the route remounts frequently.
+* This renders on the client, so feed content is not present in the server-rendered HTML. If you need the feed indexed for SEO, use the API instead.
+
+See [Attributes](../attributes/overview.md) for the full attribute model.
+
+### Pre-made components
+
+FeedSpring's pre-made components are React components built for Framer, where every setting is exposed as a property control. If you are building in Framer, see [Framer](framer.md).
 
 ### Next steps
 
-* [Framer Components](framer.md) — using these components in Framer
-* [Attributes (HTML)](../attributes/overview.md) — the full attribute model
-* [API (GraphQL)](../graphql-api/overview.md) — fetching feed data directly
-* [Attributes Reference](../attributes/reference.md) — every field, for every source
+* [GraphQL API](../graphql-api/overview.md) — the full API reference
+* [Attributes](../attributes/overview.md) — the full attribute model
+* [Feeds](../feeds/instagram.md) — fields and queries for each source
