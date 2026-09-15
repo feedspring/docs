@@ -1,5 +1,5 @@
 ---
-description: How the feed query works: feed types, inline fragments, collections under nodes, nullability and item limits.
+description: "How the feed query works: feed types, inline fragments, collections under nodes, nullability and item limits."
 ---
 
 # Querying Feeds

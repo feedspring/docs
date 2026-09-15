@@ -1,5 +1,5 @@
 ---
-description: Pick the best way to add FeedSpring to your site: pre-made components, attributes, or the GraphQL API.
+description: "Pick the best way to add FeedSpring to your site: pre-made components, attributes, or the GraphQL API."
 icon: signs-post
 ---
 

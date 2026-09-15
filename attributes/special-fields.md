@@ -1,5 +1,5 @@
 ---
-description: Fields that do more than insert a value: background images, timestamp formatting, star ratings, verified badges and tags.
+description: "Fields that do more than insert a value: background images, timestamp formatting, star ratings, verified badges and tags."
 ---
 
 # Special Fields

@@ -1,5 +1,5 @@
 ---
-description: Why an attributes feed isn't rendering, and how to fix it: a checklist, common mistakes and known issues.
+description: "Why an attributes feed isn't rendering, and how to fix it: a checklist, common mistakes and known issues."
 ---
 
 # Troubleshooting

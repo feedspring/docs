@@ -1,5 +1,5 @@
 ---
-description: The feedspring and feed-field attributes in detail: wrappers, post templates, element types, and post versus profile fields.
+description: "The feedspring and feed-field attributes in detail: wrappers, post templates, element types, and post versus profile fields."
 ---
 
 # Fields & Elements
