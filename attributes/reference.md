@@ -123,28 +123,30 @@ feed-options="render:dynamic|limit:6|lang:en"
 
 ### All `feed-field` values
 
+The GraphQL field column gives the matching field in the [GraphQL API](../graphql-api/overview.md). Post fields are on each item in the feed's collection `nodes`; profile fields are on the feed.
+
 #### Instagram post fields
 
-| Attribute       | JSON key       | Type                              |
+| Attribute       | GraphQL field       | Type                              |
 | --------------- | -------------- | --------------------------------- |
-| `img`           | `mediaUrl`     | image URL                         |
-| `bg`            | `mediaUrl`     | image URL (as `background-image`) |
-| `link`          | `permalink`    | URL                               |
-| `caption`       | `caption`      | string (innerHTML)                |
-| `like-count`    | `likeCount`    | number (compact)                  |
+| `img`           | `image.url` | image URL                         |
+| `bg`            | `image.url` | image URL (as `background-image`) |
+| `link`          | `url` | URL                               |
+| `caption`       | `caption` | string (innerHTML)                |
+| `like-count`    | `likeCount` | number (compact)                  |
 | `comment-count` | `commentCount` | number (compact)                  |
-| `timestamp`     | `timestamp`    | date-time                         |
+| `timestamp`     | `publishedAt` | date-time                         |
 
 #### Instagram profile fields
 
-| Attribute         | JSON key         | Type             |
+| Attribute         | GraphQL field         | Type             |
 | ----------------- | ---------------- | ---------------- |
-| `avatar`          | `avatar`         | image URL        |
-| `name`            | `fullName`       | string           |
-| `username`        | `username`       | string           |
-| `bio`             | `bio`            | string           |
-| `follower-count`  | `followersCount` | number (compact) |
-| `following-count` | `followingCount` | number (compact) |
+| `avatar`          | `profile.avatar.url` | image URL        |
+| `name`            | `profile.fullName` | string           |
+| `username`        | `profile.username` | string           |
+| `bio`             | `profile.bio` | string           |
+| `follower-count`  | `profile.followerCount` | number (compact) |
+| `following-count` | `profile.followingCount` | number (compact) |
 
 {% hint style="info" %}
 Profile fields can also be placed _inside_ a post template — for example, to show the account avatar and handle on every card. They resolve to the same account-level value on every post.
@@ -152,73 +154,73 @@ Profile fields can also be placed _inside_ a post template — for example, to s
 
 #### Google Reviews post fields
 
-| Attribute       | JSON key          | Type                          |
+| Attribute       | GraphQL field          | Type                          |
 | --------------- | ----------------- | ----------------------------- |
-| `review`        | `comment`         | string                        |
-| `name`          | `author.name`     | string                        |
-| `avatar`        | `author.photoUrl` | image URL                     |
-| `rating`        | `rating.number`   | number (1-5)                  |
-| `rating-string` | `rating.string`   | string ("five", "four", etc.) |
-| `star`          | `rating.number`   | repeater (active stars)       |
-| `star-inactive` | `rating.number`   | repeater (inactive stars)     |
-| `timestamp`     | `createdAt`       | date-time                     |
+| `review`        | `comment` | string                        |
+| `name`          | `author.name` | string                        |
+| `avatar`        | `author.photo.url` | image URL                     |
+| `rating`        | `rating.value` | number (1-5)                  |
+| `rating-string` | `rating.label` | string ("five", "four", etc.) |
+| `star`          | `rating.value` | repeater (active stars)       |
+| `star-inactive` | `rating.value` | repeater (inactive stars)     |
+| `timestamp`     | `createdAt` | date-time                     |
 
 #### Google Reviews profile fields
 
-| Attribute        | JSON key        | Type               |
+| Attribute        | GraphQL field        | Type               |
 | ---------------- | --------------- | ------------------ |
 | `average-rating` | `averageRating` | number (1 decimal) |
-| `total`          | `total`         | number             |
+| `total`          | `reviewCount` | number             |
 
 #### TikTok post fields
 
-| Attribute       | JSON key          | Type               |
+| Attribute       | GraphQL field          | Type               |
 | --------------- | ----------------- | ------------------ |
-| `img`           | `coverImageUrl`   | image URL          |
-| `video`         | derived from `id` | iframe embed URL   |
-| `link`          | `shareUrl`        | URL                |
-| `title`         | `title`           | string (innerHTML) |
-| `description`   | `description`     | string (innerHTML) |
-| `duration`      | `duration`        | number             |
-| `view-count`    | `viewCount`       | number (compact)   |
-| `like-count`    | `likeCount`       | number (compact)   |
-| `comment-count` | `commentCount`    | number (compact)   |
-| `share-count`   | `shareCount`      | number             |
-| `timestamp`     | `createTime`      | date-time          |
+| `img`           | `cover.url` | image URL          |
+| `video`         | `embedUrl` | iframe embed URL   |
+| `link`          | `url` | URL                |
+| `title`         | `title` | string (innerHTML) |
+| `description`   | `description` | string (innerHTML) |
+| `duration`      | `durationSeconds` | number             |
+| `view-count`    | `viewCount` | number (compact)   |
+| `like-count`    | `likeCount` | number (compact)   |
+| `comment-count` | `commentCount` | number (compact)   |
+| `share-count`   | `shareCount` | number             |
+| `timestamp`     | `publishedAt` | date-time          |
 
 #### TikTok profile fields
 
-| Attribute         | JSON key         | Type               |
+| Attribute         | GraphQL field         | Type               |
 | ----------------- | ---------------- | ------------------ |
-| `avatar`          | `avatarUrl`      | image URL          |
-| `profile-link`    | `profileLink`    | URL (known issue)  |
-| `name`            | `displayName`    | string (innerHTML) |
-| `bio`             | `bio`            | string (innerHTML) |
-| `follower-count`  | `followerCount`  | number (compact)   |
-| `following-count` | `followingCount` | number (compact)   |
-| `total-likes`     | `likesCount`     | number (compact)   |
-| `verified`        | `isVerified`     | boolean gate       |
+| `avatar`          | `profile.avatar.url` | image URL          |
+| `profile-link`    | `profile.url` | URL (known issue)  |
+| `name`            | `profile.displayName` | string (innerHTML) |
+| `bio`             | `profile.bio` | string (innerHTML) |
+| `follower-count`  | `profile.followerCount` | number (compact)   |
+| `following-count` | `profile.followingCount` | number (compact)   |
+| `total-likes`     | `profile.likeCount` | number (compact)   |
+| `verified`        | `profile.isVerified` | boolean gate       |
 
 #### Dribbble post fields
 
-| Attribute   | JSON key      | Type      |
+| Attribute   | GraphQL field      | Type      |
 | ----------- | ------------- | --------- |
-| `img`       | `image`       | image URL |
-| `link`      | `url`         | URL       |
-| `title`     | `title`       | string    |
-| `tag`       | `tags`        | repeater (known issue) |
+| `img`       | `image.url` | image URL |
+| `link`      | `url` | URL       |
+| `title`     | `title` | string    |
+| `tag`       | `tags` | repeater (known issue) |
 | `timestamp` | `publishedAt` | date-time |
 
 #### Dribbble profile fields
 
-| Attribute      | JSON key         | Type               |
+| Attribute      | GraphQL field         | Type               |
 | -------------- | ---------------- | ------------------ |
-| `avatar`       | `avatarUrl`      | image URL          |
-| `name`         | `name`           | string             |
-| `bio`          | `bio`            | string (innerHTML) |
-| `location`     | `location`       | string             |
-| `profile-link` | `url`            | URL                |
-| `followers`    | `followersCount` | number (compact)   |
+| `avatar`       | `profile.avatar.url` | image URL          |
+| `name`         | `profile.name` | string             |
+| `bio`          | `profile.bio` | string (innerHTML) |
+| `location`     | `profile.location` | string             |
+| `profile-link` | `profile.url` | URL                |
+| `followers`    | `profile.followerCount` | number (compact)   |
 
 ### Modifier attributes
 
@@ -289,21 +291,21 @@ All other text fields use plain text insertion.
 
 ### Cross-source normalization
 
-Attributes that work the same across feeds, mapping to different JSON keys:
+Attributes that work the same across feeds, and the GraphQL fields they correspond to:
 
-| Attribute         | Works on                    | Maps to                                               |
-| ----------------- | --------------------------- | ----------------------------------------------------- |
-| `img`             | Instagram, TikTok, Dribbble | `mediaUrl`, `coverImageUrl`, `image`                  |
-| `link`            | Instagram, TikTok, Dribbble | `permalink`, `shareUrl`, `url`                        |
-| `timestamp`       | All                         | `timestamp`, `createdAt`, `createTime`, `publishedAt` |
-| `avatar`          | All                         | `avatar`, `author.photoUrl`, `avatarUrl`              |
-| `name`            | All                         | `fullName`, `author.name`, `displayName`, `name`      |
-| `bio`             | Instagram, TikTok, Dribbble | `bio`                                                 |
-| `profile-link`    | TikTok, Dribbble            | `profileLink`, `url`                                  |
-| `like-count`      | Instagram, TikTok           | `likeCount`                                           |
-| `comment-count`   | Instagram, TikTok           | `commentCount`                                        |
-| `follower-count`  | Instagram, TikTok           | `followersCount` / `followerCount`                    |
-| `following-count` | Instagram, TikTok           | `followingCount`                                      |
+| Attribute         | Works on                         | GraphQL field                                                          |
+| ----------------- | -------------------------------- | ---------------------------------------------------------------------- |
+| `img`             | Instagram, TikTok, Dribbble      | `image.url`, `cover.url`, `image.url`                                  |
+| `link`            | Instagram, TikTok, Dribbble      | `url`                                                                  |
+| `timestamp`       | All                              | `publishedAt` (Instagram, TikTok, Dribbble), `createdAt` (Google)      |
+| `avatar`          | All                              | `profile.avatar.url`, or `author.photo.url` for Google reviewers       |
+| `name`            | All                              | `profile.fullName`, `author.name`, `profile.displayName`, `profile.name` |
+| `bio`             | Instagram, TikTok, Dribbble      | `profile.bio`                                                          |
+| `profile-link`    | TikTok, Dribbble                 | `profile.url`                                                          |
+| `like-count`      | Instagram, TikTok                | `likeCount`                                                            |
+| `comment-count`   | Instagram, TikTok                | `commentCount`                                                         |
+| `follower-count`  | Instagram, TikTok                | `profile.followerCount` (Dribbble uses `followers`)                    |
+| `following-count` | Instagram, TikTok                | `profile.followingCount`                                               |
 
 ### Source-specific attributes
 

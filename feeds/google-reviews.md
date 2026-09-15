@@ -12,29 +12,33 @@ Feed ID prefix: `google_...`
 ### Render Google Reviews with
 
 * [Attributes](../attributes/overview.md), add Google Reviews to any HTML page
-* [React](../build-with/react-nextjs.md), drop a component into your React app
+* [React & Next.js](../build-with/react-nextjs.md), use the GraphQL API or attributes in a React app
 * [Framer](../build-with/framer.md), use the Google Reviews component in Framer
-* [API](../graphql-api/overview.md), fetch Google Reviews data directly
+* [GraphQL API](#graphql-api), fetch Google Reviews data directly — see the query below
 
 ### Post fields
 
-| Attribute                    | JSON key          | Type      | Description                                                                                                           |
+In the GraphQL API, post fields are on each item in `reviews.nodes`.
+
+| Attribute                    | GraphQL field          | Type      | Description                                                                                                           |
 | ---------------------------- | ----------------- | --------- | --------------------------------------------------------------------------------------------------------------------- |
-| `feed-field="review"`        | `comment`         | string    | The review text itself.                                                                                               |
-| `feed-field="name"`          | `author.name`     | string    | Reviewer's name.                                                                                                      |
-| `feed-field="avatar"`        | `author.photoUrl` | image URL | Reviewer's Google profile photo.                                                                                      |
-| `feed-field="rating"`        | `rating.number`   | number    | Numeric rating (1 to 5).                                                                                              |
-| `feed-field="rating-string"` | `rating.string`   | string    | Rating as a word ("five", "four", etc.). Useful for human-readable output.                                            |
-| `feed-field="star"`          | `rating.number`   | repeater  | Active star template. FeedSpring clones this element once per rating point.                                           |
-| `feed-field="star-inactive"` | `rating.number`   | repeater  | Inactive star template. FeedSpring clones this element `5 - rating` times.                                            |
-| `feed-field="timestamp"`     | `createdAt`       | date-time | When the review was posted. See [timestamp formatting](../attributes/overview.md#feed-timestamp). |
+| `feed-field="review"`        | `comment` | string    | The review text itself.                                                                                               |
+| `feed-field="name"`          | `author.name` | string    | Reviewer's name.                                                                                                      |
+| `feed-field="avatar"`        | `author.photo.url` | image URL | Reviewer's Google profile photo.                                                                                      |
+| `feed-field="rating"`        | `rating.value` | number    | Numeric rating (1 to 5).                                                                                              |
+| `feed-field="rating-string"` | `rating.label` | string    | Rating as a word ("five", "four", etc.). Useful for human-readable output.                                            |
+| `feed-field="star"`          | `rating.value` | repeater  | Active star template. FeedSpring clones this element once per rating point.                                           |
+| `feed-field="star-inactive"` | `rating.value` | repeater  | Inactive star template. FeedSpring clones this element `5 - rating` times.                                            |
+| `feed-field="timestamp"`     | `createdAt` | date-time | When the review was posted. See [timestamp formatting](../attributes/special-fields.md#feed-timestamp). |
 
 ### Profile fields
 
-| Attribute                     | JSON key        | Type   | Description                                                                     |
+In the GraphQL API, profile fields are on the feed itself.
+
+| Attribute                     | GraphQL field        | Type   | Description                                                                     |
 | ----------------------------- | --------------- | ------ | ------------------------------------------------------------------------------- |
 | `feed-field="average-rating"` | `averageRating` | number | Average rating across all reviews, formatted to one decimal place (e.g. `5.0`). |
-| `feed-field="total"`          | `total`         | number | Total number of reviews.                                                        |
+| `feed-field="total"`          | `reviewCount` | number | Total number of reviews.                                                        |
 
 ### How star ratings work
 
@@ -115,6 +119,78 @@ A review grid using the attributes delivery method. It uses static rendering, re
 </section>
 ```
 
+### GraphQL API
+
+Fetch Google Reviews feeds with the [GraphQL API](../graphql-api/overview.md). The feed returns `GoogleReviewsFeedData`, with items under `reviews.nodes`.
+
+Google Reviews feeds contain business information, aggregate rating data, and reviews.
+
+```graphql
+query GoogleReviewsFeed($publicKey: String!) {
+  feed(publicKey: $publicKey) {
+    __typename
+    ... on GoogleReviewsFeedData {
+      business {
+        name
+      }
+      location {
+        name
+        address
+        placeId
+        mapId
+      }
+      reviewCount
+      averageRating
+      reviews {
+        nodes {
+          id
+          comment
+          reply {
+            comment
+            updatedAt
+          }
+          author {
+            name
+            photo {
+              url(input: { width: 128, height: 128 })
+            }
+            isAnonymous
+          }
+          rating {
+            label
+            value
+          }
+          location {
+            name
+            address
+            placeId
+            mapId
+          }
+          createdAt
+          updatedAt
+        }
+      }
+    }
+  }
+}
+```
+
+#### Field notes
+
+| Field | Description |
+| --- | --- |
+| `business` | Business represented by the feed. |
+| `location` | Feed-level Google location, or `null` when the feed is not tied to one location. |
+| `reviewCount` | Total review count reported for the business. |
+| `averageRating` | Average rating reported for the business. |
+| `reviews.nodes` | Reviews available in the feed. The list is always present and may be empty. |
+| `reply` | Business reply to the review, or `null` when there is no reply. |
+| `author.photo` | Optional author photo. |
+| `author.isAnonymous` | Whether Google marked the reviewer as anonymous. |
+| `rating.label` | Human-readable rating label. |
+| `rating.value` | Numeric rating value. |
+| `review.location` | Location associated with an individual review, when available. |
+
 ### Typical use cases
 
 * Carousel of 5-star reviews under a landing page hero
@@ -124,6 +200,6 @@ A review grid using the attributes delivery method. It uses static rendering, re
 
 ### Next steps
 
-* [Pick a delivery method](../README.md#where-to-start) to render Google Reviews
-* [Filtering & Limits](../attributes/feed-options.md) for limit, skip, and dashboard filters
+* [Choose your setup](../getting-started/choose-your-setup.md) to render Google Reviews
+* [Feed Options](../attributes/feed-options.md) for `limit` and `skip`, and [Filtering](../core-concepts/filtering.md) for dashboard filters
 * [Browse other feed sources](../README.md#what-this-documentation-covers)

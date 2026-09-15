@@ -12,38 +12,42 @@ Feed ID prefix: `tiktok_...`
 ### Render TikTok with
 
 * [Attributes](../attributes/overview.md), add TikTok to any HTML page
-* [React](../build-with/react-nextjs.md), drop a component into your React app
+* [React & Next.js](../build-with/react-nextjs.md), use the GraphQL API or attributes in a React app
 * [Framer](../build-with/framer.md), use the TikTok component in Framer
-* [API](../graphql-api/overview.md), fetch TikTok data directly
+* [GraphQL API](#graphql-api), fetch TikTok data directly — see the query below
 
 ### Post fields
 
-| Attribute                    | JSON key        | Type              | Description                                                                                                             |
+In the GraphQL API, post fields are on each item in `videos.nodes`.
+
+| Attribute                    | GraphQL field        | Type              | Description                                                                                                             |
 | ---------------------------- | --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `feed-field="img"`           | `coverImageUrl` | image URL         | The video thumbnail. Sets the `src` of an `<img>`.                                                                      |
-| `feed-field="video"`         | `id`            | derived embed URL | Inline video player. Sets the `src` of an `<iframe>` to the TikTok embed URL.                                           |
-| `feed-field="link"`          | `shareUrl`      | URL               | Canonical TikTok link. Sets the `href` of an `<a>`.                                                                     |
-| `feed-field="title"`         | `title`         | string            | Video title. Written with `innerHTML`.                                                                                  |
-| `feed-field="description"`   | `description`   | string            | Video description. Written with `innerHTML`.                                                                            |
-| `feed-field="duration"`      | `duration`      | number            | Video length.                                                                                                           |
-| `feed-field="view-count"`    | `viewCount`     | number            | View count, formatted with compact locale notation (e.g. `1.2K`).                                                       |
-| `feed-field="like-count"`    | `likeCount`     | number            | Like count, formatted with compact locale notation.                                                                     |
-| `feed-field="comment-count"` | `commentCount`  | number            | Comment count, formatted with compact locale notation.                                                                  |
-| `feed-field="share-count"`   | `shareCount`    | number            | Share count.                                                                                                            |
-| `feed-field="timestamp"`     | `createTime`    | date-time         | When the video was published. See [timestamp formatting](../attributes/overview.md#feed-timestamp). |
+| `feed-field="img"`           | `cover.url` | image URL         | The video thumbnail. Sets the `src` of an `<img>`.                                                                      |
+| `feed-field="video"`         | `embedUrl` | derived embed URL | Inline video player. Sets the `src` of an `<iframe>` to the TikTok embed URL.                                           |
+| `feed-field="link"`          | `url` | URL               | Canonical TikTok link. Sets the `href` of an `<a>`.                                                                     |
+| `feed-field="title"`         | `title` | string            | Video title. Written with `innerHTML`.                                                                                  |
+| `feed-field="description"`   | `description` | string            | Video description. Written with `innerHTML`.                                                                            |
+| `feed-field="duration"`      | `durationSeconds` | number            | Video length.                                                                                                           |
+| `feed-field="view-count"`    | `viewCount` | number            | View count, formatted with compact locale notation (e.g. `1.2K`).                                                       |
+| `feed-field="like-count"`    | `likeCount` | number            | Like count, formatted with compact locale notation.                                                                     |
+| `feed-field="comment-count"` | `commentCount` | number            | Comment count, formatted with compact locale notation.                                                                  |
+| `feed-field="share-count"`   | `shareCount` | number            | Share count.                                                                                                            |
+| `feed-field="timestamp"`     | `publishedAt` | date-time         | When the video was published. See [timestamp formatting](../attributes/special-fields.md#feed-timestamp). |
 
 ### Profile fields
 
-| Attribute                      | JSON key         | Type         | Description                                                                                                                        |
+In the GraphQL API, profile fields are on the feed itself.
+
+| Attribute                      | GraphQL field         | Type         | Description                                                                                                                        |
 | ------------------------------ | ---------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `feed-field="avatar"`          | `avatarUrl`      | image URL    | Profile avatar.                                                                                                                    |
-| `feed-field="name"`            | `displayName`    | string       | Profile display name. Written with `innerHTML`.                                                                                    |
-| `feed-field="bio"`             | `bio`            | string       | Profile bio. Written with `innerHTML`.                                                                                             |
-| `feed-field="profile-link"`    | `profileLink`    | URL          | Link to the profile on TikTok. Sets the `href` of an `<a>`. See the known issue below.                                            |
-| `feed-field="follower-count"`  | `followerCount`  | number       | Total followers, formatted with compact locale notation.                                                                           |
-| `feed-field="following-count"` | `followingCount` | number       | Total accounts followed, formatted with compact locale notation.                                                                   |
-| `feed-field="total-likes"`     | `likesCount`     | number       | Total likes across all the account's videos, formatted with compact locale notation.                                               |
-| `feed-field="verified"`        | `isVerified`     | boolean gate | Element is kept in the DOM if the account is verified, removed entirely if not. Use this to conditionally render a verified badge. |
+| `feed-field="avatar"`          | `profile.avatar.url` | image URL    | Profile avatar.                                                                                                                    |
+| `feed-field="name"`            | `profile.displayName` | string       | Profile display name. Written with `innerHTML`.                                                                                    |
+| `feed-field="bio"`             | `profile.bio` | string       | Profile bio. Written with `innerHTML`.                                                                                             |
+| `feed-field="profile-link"`    | `profile.url` | URL          | Link to the profile on TikTok. Sets the `href` of an `<a>`. See the known issue below.                                            |
+| `feed-field="follower-count"`  | `profile.followerCount` | number       | Total followers, formatted with compact locale notation.                                                                           |
+| `feed-field="following-count"` | `profile.followingCount` | number       | Total accounts followed, formatted with compact locale notation.                                                                   |
+| `feed-field="total-likes"`     | `profile.likeCount` | number       | Total likes across all the account's videos, formatted with compact locale notation.                                               |
+| `feed-field="verified"`        | `profile.isVerified` | boolean gate | Element is kept in the DOM if the account is verified, removed entirely if not. Use this to conditionally render a verified badge. |
 
 ### Inline video playback
 
@@ -106,6 +110,67 @@ A video grid using the attributes delivery method:
 </section>
 ```
 
+### GraphQL API
+
+Fetch TikTok feeds with the [GraphQL API](../graphql-api/overview.md). The feed returns `TikTokFeedData`, with items under `videos.nodes`.
+
+TikTok feeds contain profile information and a list of videos.
+
+```graphql
+query TikTokFeed($publicKey: String!) {
+  feed(publicKey: $publicKey) {
+    __typename
+    ... on TikTokFeedData {
+      profile {
+        id
+        avatar {
+          url(input: { width: 160, height: 160 })
+        }
+        displayName
+        bio
+        url
+        followingCount
+        likeCount
+        isVerified
+        followerCount
+      }
+      videos {
+        nodes {
+          id
+          url
+          embedUrl
+          embedHtml
+          cover {
+            url(input: { width: 800 })
+          }
+          title
+          description
+          publishedAt
+          viewCount
+          likeCount
+          shareCount
+          commentCount
+          durationSeconds
+        }
+      }
+    }
+  }
+}
+```
+
+#### Field notes
+
+| Field | Description |
+| --- | --- |
+| `profile` | Profile represented by the feed. |
+| `videos.nodes` | Videos in the order configured by FeedSpring. The list is always present and may be empty. |
+| `url` | Public TikTok URL for the profile or video. |
+| `embedUrl` | URL intended for embedding the video. |
+| `embedHtml` | Embed markup supplied for the video. Treat it as third-party HTML before inserting it into a page. |
+| `cover` | Optional video cover image. |
+| `publishedAt` | Publication time, or `null` when unavailable. |
+| `durationSeconds` | Video duration in seconds. |
+
 ### Typical use cases
 
 * Creator homepage video grids
@@ -115,6 +180,6 @@ A video grid using the attributes delivery method:
 
 ### Next steps
 
-* [Pick a delivery method](../README.md#where-to-start) to render TikTok
-* [Filtering & Limits](../attributes/feed-options.md) for limit, skip, and dashboard filters
+* [Choose your setup](../getting-started/choose-your-setup.md) to render TikTok
+* [Feed Options](../attributes/feed-options.md) for `limit` and `skip`, and [Filtering](../core-concepts/filtering.md) for dashboard filters
 * [Browse other feed sources](../README.md#what-this-documentation-covers)
