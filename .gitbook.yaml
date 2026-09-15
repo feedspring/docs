@@ -1,0 +1,21 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+
+redirects:
+  # Pages moved in the documentation restructure
+  delivery-methods/attributes-html: attributes/overview.md
+  delivery-methods/react-components: build-with/react-nextjs.md
+  delivery-methods/webflow-components: build-with/webflow.md
+  delivery-methods/framer-components: build-with/framer.md
+  delivery-methods/api-graphql: graphql-api/overview.md
+  attributes-reference: attributes/reference.md
+  core-concepts/filtering-and-limits: attributes/feed-options.md
+  core-concepts/rendering-behaviour: attributes/rendering.md
+  # Pages removed in the content fixes
+  feeds/youtube: README.md
+  recipes/styling-stars: attributes/special-fields.md
+  recipes/dynamic-rendering: attributes/rendering.md
+  recipes/skeleton-loaders: attributes/loading-and-events.md
