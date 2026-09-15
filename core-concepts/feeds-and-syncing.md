@@ -4,7 +4,7 @@ icon: arrows-spin
 
 # Feeds & Syncing
 
-A feed is a connection between FeedSpring and a source like Instagram, Google Reviews, TikTok, Dribbble or YouTube. Once connected, FeedSpring keeps your content updated automatically.
+A feed is a connection between FeedSpring and a source like Instagram, Google Reviews, TikTok or Dribbble. Once connected, FeedSpring keeps your content updated automatically.
 
 <figure><img src="../.gitbook/assets/divider-blog.png" alt=""><figcaption></figcaption></figure>
 
@@ -20,7 +20,6 @@ For example:
 * A Google Business location
 * A TikTok profile
 * A Dribbble user
-* A YouTube channel
 
 Each feed contains:
 
@@ -140,7 +139,6 @@ Discover the post limits and update frequency for your feeds across each platfor
 | Google    | 8 posts (24 hrs) | 16 posts (6 hrs) | 32 posts (1 hr) | 200 posts (1 hr) |
 | TikTok    | 8 posts (24 hrs) | 16 posts (6 hrs) | 32 posts (1 hr) | 200 posts (1 hr) |
 | Dribbble  | 8 posts (24 hrs) | 16 posts (6 hrs) | 32 posts (1 hr) | 200 posts (1 hr) |
-| YouTube   | 8 posts (24 hrs) | 16 posts (6 hrs) | 32 posts (1 hr) | 200 posts (1 hr) |
 
 {% hint style="info" %}
 Update frequency may vary slightly depending on the platform and availability of new content.

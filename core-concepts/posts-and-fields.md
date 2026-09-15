@@ -22,7 +22,6 @@ Depending on the source, this could be:
 * A Google review
 * A TikTok video
 * A Dribbble shot
-* A YouTube video
 
 Each feed contains multiple posts.
 

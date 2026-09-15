@@ -42,9 +42,6 @@ In Webflow, go to **Site Settings → Custom Code → Head Code** and paste the 
 
 <!-- Dribbble -->
 <script src="https://scripts.feedspring.com/dribbble-attrs.js" async defer></script>
-
-<!-- YouTube -->
-<script src="https://scripts.feedspring.com/youtube-attrs.js" async defer></script>
 ```
 
 Only add the script for the feed types you are using.
@@ -97,7 +94,6 @@ Field names depend on the feed source. See the per-source pages for the full lis
 * Google Reviews fields
 * TikTok fields
 * Dribbble fields
-* YouTube fields
 
 #### **Next steps**
 

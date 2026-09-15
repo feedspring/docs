@@ -8,7 +8,7 @@ Get a live FeedSpring feed on your site in under 2 minutes.
 
 This example uses the **Attributes (HTML) method**, the fastest way to get started.
 
-FeedSpring works the same across all feed types — Instagram, Google Reviews, TikTok, YouTube and Dribbble.
+FeedSpring works the same across all feed types — Instagram, Google Reviews, TikTok and Dribbble.
 
 <figure><img src="../.gitbook/assets/divider-blog.png" alt=""><figcaption></figcaption></figure>
 
@@ -30,9 +30,6 @@ Add the script for your feed type to your site `<head>`
 
 <!-- Dribbble -->
 <script src="https://scripts.feedspring.com/dribbble-attrs.js" async defer></script>
-
-<!-- YouTube-->
-<script src="https://scripts.feedspring.com/youtube-attrs.js" async defer></script>
 ```
 
 👉 Only include the script for the feed you want to use.
@@ -119,7 +116,6 @@ FeedSpring looks for three things:
   * [Google Reviews](../feeds/google-reviews.md)
   * [TikTok](../feeds/tiktok.md)
   * [Dribbble](../feeds/dribbble.md)
-  * [YouTube](../feeds/youtube.md)
 * Learn more about feed options
 
 ***
@@ -136,5 +132,5 @@ If you're not using Attributes (HTML) or Webflow:
 
 Discover the post limits, and frequency of updates for your feeds across various platforms based on your chosen plan. Whether you opt for the Free, Personal, Pro, or Enterprise plan, you can easily compare how many posts are included.
 
-<table><thead><tr><th width="137">Platform</th><th width="163">Free</th><th width="149">Personal</th><th width="140">Pro</th><th>Enterprise</th></tr></thead><tbody><tr><td>Instagram</td><td>8 Posts (24hrs)</td><td>12 Posts (6hrs)</td><td>12 Posts (1hr)</td><td>12 Posts (1hr)</td></tr><tr><td>Google</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr><tr><td>TikTok</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr><tr><td>Dribbble</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr><tr><td>YouTube</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr></tbody></table>
+<table><thead><tr><th width="137">Platform</th><th width="163">Free</th><th width="149">Personal</th><th width="140">Pro</th><th>Enterprise</th></tr></thead><tbody><tr><td>Instagram</td><td>8 Posts (24hrs)</td><td>12 Posts (6hrs)</td><td>12 Posts (1hr)</td><td>12 Posts (1hr)</td></tr><tr><td>Google</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr><tr><td>TikTok</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr><tr><td>Dribbble</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr></tbody></table>
 

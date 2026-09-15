@@ -6,7 +6,7 @@ icon: hand-wave
 
 **FeedSpring is a social feed platform that separates data from display.**
 
-Connect a source like [Instagram](feeds/instagram.md), [Google Reviews](feeds/google-reviews.md), [TikTok](feeds/tiktok.md), [Dribbble](feeds/dribbble.md), or [YouTube](feeds/youtube.md), and FeedSpring handles the fetching, storing, syncing, and refreshing. You handle the design.
+Connect a source like [Instagram](feeds/instagram.md), [Google Reviews](feeds/google-reviews.md), [TikTok](feeds/tiktok.md), or [Dribbble](feeds/dribbble.md), and FeedSpring handles the fetching, storing, syncing, and refreshing. You handle the design.
 
 Unlike traditional feed widgets, FeedSpring doesn't force a fixed UI. Instead, you choose a rendering system that fits your stack — [HTML Attributes](delivery-methods/attributes-html.md), [React Components](delivery-methods/react-components.md), or the [API](delivery-methods/api-graphql.md) — and render feeds any way you want.
 
@@ -19,7 +19,7 @@ The same feed powers every platform and rendering system.
 FeedSpring has four core parts:
 
 * **Feed Sources:**
-  * [Instagram](feeds/instagram.md), [Google Reviews](feeds/google-reviews.md), [TikTok](feeds/tiktok.md), [Dribbble](feeds/dribbble.md) and [YouTube](feeds/youtube.md)
+  * [Instagram](feeds/instagram.md), [Google Reviews](feeds/google-reviews.md), [TikTok](feeds/tiktok.md) and [Dribbble](feeds/dribbble.md)
 * **Rendering Systems:**&#x20;
   * [HTML Attributes](delivery-methods/attributes-html.md), [React Components](delivery-methods/react-components.md), and the [API](delivery-methods/api-graphql.md).
 * **Native Platform Integrations:**&#x20;

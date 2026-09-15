@@ -26,14 +26,7 @@
 * [Google Reviews](feeds/google-reviews.md)
 * [TikTok](feeds/tiktok.md)
 * [Dribbble](feeds/dribbble.md)
-* [YouTube](feeds/youtube.md)
 
 ***
 
 * [Attributes Reference](attributes-reference.md)
-
-## Recipes
-
-* [🔵 Styling Stars](recipes/styling-stars.md)
-* [🔵 Dynamic Rendering](recipes/dynamic-rendering.md)
-* [🔵 Skeleton Loaders](recipes/skeleton-loaders.md)
