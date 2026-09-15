@@ -33,28 +33,28 @@ This query returns the first fields needed to render an Instagram feed:
 
 ```graphql
 query Feed($publicKey: String!) {
-  feed(publicKey: $publicKey) {
-    __typename
-    ... on InstagramFeedData {
-      profile {
-        username
-        fullName
-        avatar {
-          url(input: { width: 160, height: 160 })
-        }
-      }
-      posts {
-        nodes {
-          id
-          caption
-          url
-          image {
-            url(input: { width: 800 })
-          }
-        }
-      }
-    }
-  }
+	feed(publicKey: $publicKey) {
+		__typename
+		... on InstagramFeedData {
+			profile {
+				username
+				fullName
+				avatar {
+					url(input: { width: 160, height: 160 })
+				}
+			}
+			posts {
+				nodes {
+					id
+					caption
+					url
+					image {
+						url(input: { width: 800 })
+					}
+				}
+			}
+		}
+	}
 }
 ```
 
@@ -374,25 +374,33 @@ query FeedType($publicKey: String!) {
 
     ... on InstagramFeedData {
       posts {
-        id
+        nodes {
+          id
+        }
       }
     }
 
     ... on TikTokFeedData {
       videos {
-        id
+        nodes {
+          id
+        }
       }
     }
 
     ... on DribbbleFeedData {
       shots {
-        id
+        nodes {
+          id
+        }
       }
     }
 
     ... on GoogleReviewsFeedData {
       reviews {
-        id
+        nodes {
+          id
+        }
       }
     }
   }
@@ -420,26 +428,28 @@ query InstagramFeed($publicKey: String!) {
       }
       hashtag
       posts {
-        id
-        mediaType
-        image {
-          url(input: { width: 1200 })
-        }
-        url
-        likeCount
-        commentCount
-        publishedAt
-        caption
-        username
-        avatar {
-          url(input: { width: 96, height: 96 })
-        }
-        fullName
-        children {
+        nodes {
           id
           mediaType
           image {
             url(input: { width: 1200 })
+          }
+          url
+          likeCount
+          commentCount
+          publishedAt
+          caption
+          username
+          avatar {
+            url(input: { width: 96, height: 96 })
+          }
+          fullName
+          children {
+            id
+            mediaType
+            image {
+              url(input: { width: 1200 })
+            }
           }
         }
       }
@@ -454,7 +464,7 @@ query InstagramFeed($publicKey: String!) {
 | --- | --- |
 | `profile` | Account-level data. It is `null` for hashtag feeds. |
 | `hashtag` | Hashtag represented by the feed. It is `null` for account feeds. |
-| `posts` | Posts in the order configured by FeedSpring. The list is always present and may be empty. |
+| `posts.nodes` | Posts in the order configured by FeedSpring. The list is always present and may be empty. |
 | `mediaType` | One of `IMAGE`, `VIDEO`, or `CAROUSEL`. |
 | `image` | Available display image for the post. |
 | `url` | Permalink to the post on Instagram. |
@@ -485,21 +495,23 @@ query TikTokFeed($publicKey: String!) {
         followerCount
       }
       videos {
-        id
-        url
-        embedUrl
-        embedHtml
-        cover {
-          url(input: { width: 800 })
+        nodes {
+          id
+          url
+          embedUrl
+          embedHtml
+          cover {
+            url(input: { width: 800 })
+          }
+          title
+          description
+          publishedAt
+          viewCount
+          likeCount
+          shareCount
+          commentCount
+          durationSeconds
         }
-        title
-        description
-        publishedAt
-        viewCount
-        likeCount
-        shareCount
-        commentCount
-        durationSeconds
       }
     }
   }
@@ -511,7 +523,7 @@ query TikTokFeed($publicKey: String!) {
 | Field | Description |
 | --- | --- |
 | `profile` | Profile represented by the feed. |
-| `videos` | Videos in the order configured by FeedSpring. The list is always present and may be empty. |
+| `videos.nodes` | Videos in the order configured by FeedSpring. The list is always present and may be empty. |
 | `url` | Public TikTok URL for the profile or video. |
 | `embedUrl` | URL intended for embedding the video. |
 | `embedHtml` | Embed markup supplied for the video. Treat it as third-party HTML before inserting it into a page. |
@@ -544,29 +556,31 @@ query DribbbleFeed($publicKey: String!) {
         isPro
       }
       shots {
-        id
-        url
-        title
-        publishedAt
-        updatedAt
-        image {
-          url(input: { width: 1200 })
-        }
-        tags
-        team {
+        nodes {
           id
-          avatar {
-            url(input: { width: 160, height: 160 })
-          }
-          bio
-          createdAt
-          followerCount
           url
-          websiteUrl
-          location
-          username
-          name
-          isPro
+          title
+          publishedAt
+          updatedAt
+          image {
+            url(input: { width: 1200 })
+          }
+          tags
+          team {
+            id
+            avatar {
+              url(input: { width: 160, height: 160 })
+            }
+            bio
+            createdAt
+            followerCount
+            url
+            websiteUrl
+            location
+            username
+            name
+            isPro
+          }
         }
       }
     }
@@ -579,7 +593,7 @@ query DribbbleFeed($publicKey: String!) {
 | Field | Description |
 | --- | --- |
 | `profile` | Designer profile represented by the feed. |
-| `shots` | Shots in the order configured by FeedSpring. The list is always present and may be empty. |
+| `shots.nodes` | Shots in the order configured by FeedSpring. The list is always present and may be empty. |
 | `url` | Public Dribbble URL for the profile, team, or shot. |
 | `websiteUrl` | Optional external website configured on the profile or team. |
 | `image` | Optional shot image. |
@@ -607,31 +621,33 @@ query GoogleReviewsFeed($publicKey: String!) {
       reviewCount
       averageRating
       reviews {
-        id
-        comment
-        reply {
+        nodes {
+          id
           comment
+          reply {
+            comment
+            updatedAt
+          }
+          author {
+            name
+            photo {
+              url(input: { width: 128, height: 128 })
+            }
+            isAnonymous
+          }
+          rating {
+            label
+            value
+          }
+          location {
+            name
+            address
+            placeId
+            mapId
+          }
+          createdAt
           updatedAt
         }
-        author {
-          name
-          photo {
-            url(input: { width: 128, height: 128 })
-          }
-          isAnonymous
-        }
-        rating {
-          label
-          value
-        }
-        location {
-          name
-          address
-          placeId
-          mapId
-        }
-        createdAt
-        updatedAt
       }
     }
   }
@@ -646,7 +662,7 @@ query GoogleReviewsFeed($publicKey: String!) {
 | `location` | Feed-level Google location, or `null` when the feed is not tied to one location. |
 | `reviewCount` | Total review count reported for the business. |
 | `averageRating` | Average rating reported for the business. |
-| `reviews` | Reviews available in the feed. The list is always present and may be empty. |
+| `reviews.nodes` | Reviews available in the feed. The list is always present and may be empty. |
 | `reply` | Business reply to the review, or `null` when there is no reply. |
 | `author.photo` | Optional author photo. |
 | `author.isAnonymous` | Whether Google marked the reviewer as anonymous. |
@@ -767,16 +783,16 @@ The API uses these GraphQL scalars:
 
 Fields marked with `!` in the schema are non-null. Image objects and some source fields are nullable because providers do not always supply them.
 
-Collection fields such as `posts`, `videos`, `shots`, `reviews`, `children`, and `tags` always return an array. When no items are available, they return `[]` instead of `null`.
+Connection fields `posts`, `videos`, `shots`, and `reviews` are always present. Their `nodes` arrays return `[]` instead of `null` when no items are available. Nested collection fields such as `children` and `tags` also always return an array.
 
 ## Filtering and item limits
 
-The API returns the items currently configured and available for the feed. The `feed` query does not accept pagination, `limit`, or `skip` arguments.
+Provider collections use connection-style objects, with the current items available under `nodes`. The API returns the items currently configured and available for the feed. The `feed` query does not accept pagination, `limit`, or `skip` arguments.
 
 Use the FeedSpring dashboard to configure source filters and the number of synced items. If one application needs fewer items, select them after receiving the response:
 
 ```javascript
-const visiblePosts = result.data.feed.posts.slice(0, 6)
+const visiblePosts = result.data.feed.posts.nodes.slice(0, 6)
 ```
 
 ## Domain allow-list
