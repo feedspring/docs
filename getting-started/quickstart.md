@@ -1,4 +1,5 @@
 ---
+description: Get a live FeedSpring feed on your site in under two minutes using HTML attributes.
 icon: book
 ---
 
@@ -18,7 +19,7 @@ FeedSpring works the same across all feed types — Instagram, Google Reviews, T
 
 Add the script for your feed type to your site `<head>`
 
-```javascript
+```html
 <!-- Instagram -->
 <script src="https://scripts.feedspring.com/instagram-attrs.js" async defer></script>
 
@@ -116,7 +117,7 @@ FeedSpring looks for three things:
   * [Google Reviews](../feeds/google-reviews.md)
   * [TikTok](../feeds/tiktok.md)
   * [Dribbble](../feeds/dribbble.md)
-* Learn more about feed options
+* Learn more about [feed options](../core-concepts/filtering-and-limits.md)
 
 ***
 

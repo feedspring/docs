@@ -1,10 +1,9 @@
 ---
+description: Display Instagram posts, captions, engagement data and profile information on your site.
 icon: square-instagram
 ---
 
 # Instagram
-
-## Instagram
 
 Use FeedSpring to display Instagram content on your site, posts, captions, engagement data, and profile information, available as structured data across every delivery method.
 

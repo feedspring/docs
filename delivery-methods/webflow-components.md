@@ -1,10 +1,9 @@
 ---
+description: Build FeedSpring feeds visually in the Webflow Designer using custom attributes and pre-made components.
 icon: webflow
 ---
 
 # Webflow Components
-
-## Webflow Components
 
 Webflow is a first-class FeedSpring integration. Feeds are built using the Attributes system, added visually in the Webflow Designer — no code editor required. Add the script once, then apply `feedspring` and `feed-field` attributes to elements through the Designer's settings panel.
 
@@ -22,7 +21,7 @@ The three core attributes are the same everywhere:
 | `feedspring="post"`         | A repeating element inside the wrapper | Marks the template that repeats for each post      |
 | `feed-field="FIELD-NAME"`   | Any element inside a post              | Targets where a piece of content is injected       |
 
-For the full attribute model, rendering modes, and field behaviour, see Attributes (HTML).
+For the full attribute model, rendering modes, and field behaviour, see [Attributes (HTML)](attributes-html.md).
 
 ### **Quick start**
 
@@ -76,7 +75,7 @@ Inside the post wrapper, add the elements you want (images, text, links) and giv
 * Name: `feed-field`
 * Value: the field name (e.g. `img`, `caption`, `timestamp`)
 
-Remember to place image fields on Image elements and link fields on Link elements — the element type determines the behaviour. See Rendering Behaviour for the full element rules.
+Remember to place image fields on Image elements and link fields on Link elements — the element type determines the behaviour. See [Rendering Behaviour](../core-concepts/rendering-behaviour.md) for the full element rules.
 
 #### **5. Publish**
 
@@ -90,13 +89,14 @@ The fastest way to start is to copy a ready-built component from the [FeedSpring
 
 Field names depend on the feed source. See the per-source pages for the full list:
 
-* Instagram fields
-* Google Reviews fields
-* TikTok fields
-* Dribbble fields
+* [Instagram fields](../feeds/instagram.md)
+* [Google Reviews fields](../feeds/google-reviews.md)
+* [TikTok fields](../feeds/tiktok.md)
+* [Dribbble fields](../feeds/dribbble.md)
 
 #### **Next steps**
 
-* Attributes (HTML) — the full attribute model
-* Filtering & Limits — `limit`, `skip`, and dashboard filters
-* Rendering Behaviour — static vs dynamic, `appear`, locale
+* [Attributes (HTML)](attributes-html.md) — the full attribute model
+* [Filtering & Limits](../core-concepts/filtering-and-limits.md) — `limit`, `skip`, and dashboard filters
+* [Rendering Behaviour](../core-concepts/rendering-behaviour.md) — static vs dynamic, `appear`, locale
+* [Attributes Reference](../attributes-reference.md) — every field, for every source

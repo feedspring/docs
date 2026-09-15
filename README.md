@@ -1,4 +1,5 @@
 ---
+description: FeedSpring is a social feed platform that separates data from display — you own the design, we handle the data.
 icon: hand-wave
 ---
 
@@ -29,7 +30,7 @@ FeedSpring has four core parts:
 
 ### Where to start
 
-* New to FeedSpring? Follow the [Quickstart](getting-started/quickstart.md) to get a live feed in under five minutes.
+* New to FeedSpring? Follow the [Quickstart](getting-started/quickstart.md) to get a live feed in under two minutes.
 * Building in **Webflow or plain HTML?** See [Attributes](delivery-methods/attributes-html.md).
 * Building a **React or Next.js app?** See [React Components](delivery-methods/react-components.md).
 * Building in **Framer**? See [Framer Components](delivery-methods/framer-components.md).

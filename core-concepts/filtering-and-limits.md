@@ -1,10 +1,9 @@
 ---
+description: Control which items appear in your feed using dashboard filters and the limit and skip options.
 icon: filter
 ---
 
 # Filtering & Limits
-
-## Filtering & Limits
 
 Control what shows up in your feed. FeedSpring gives you two places to filter and limit content: the dashboard, and attributes on your feed wrapper.
 
@@ -107,6 +106,6 @@ The first wrapper renders index 0, the second wrapper skips it and renders index
 
 ### Next steps
 
-* Rendering Behaviour — static vs dynamic, `appear`, `lang`, loading states
-* Attributes delivery method — how to apply these options in HTML
-* Attribute Reference — the full spec
+* [Rendering Behaviour](rendering-behaviour.md) — static vs dynamic, `appear`, `lang`, loading states
+* [Attributes (HTML)](../delivery-methods/attributes-html.md) — how to apply these options in HTML
+* [Attributes Reference](../attributes-reference.md) — the full spec

@@ -1,11 +1,9 @@
 ---
-description: Get started building a beautiful feed today!
+description: Display Dribbble shots and designer profile information as a live portfolio feed.
 icon: dribbble
 ---
 
 # Dribbble
-
-## Dribbble
 
 Use FeedSpring to display Dribbble shots on your site, portfolio images, titles, and profile information. Ideal for designers, studios, and agencies building a live portfolio.
 

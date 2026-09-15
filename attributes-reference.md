@@ -1,4 +1,5 @@
 ---
+description: Complete reference of every FeedSpring attribute, option and field. Written for developers and AI coding agents.
 icon: book-bookmark
 ---
 
@@ -112,58 +113,44 @@ Example:
 
 This renders 3 posts.
 
-### Feed Options (feed-options)
+### Feed options
 
-Placed on the feed wrapper.
-
-Format:
-
-```
-feed-options="name:value|name:value"
-```
-
-Example:
+Placed on the feed wrapper, as pipe-delimited pairs:
 
 ```
 feed-options="render:dynamic|limit:6|lang:en"
 ```
 
-### Feed-Level Options
-
-| Option           | Description                                   |
-| ---------------- | --------------------------------------------- |
-| `render:dynamic` | Automatically clones a reusable post template |
-| `limit`          | Limits the number of rendered posts           |
-| `skip`           | Skips posts from the beginning of the feed    |
-| `lang`           | Controls localization and number formatting   |
+👉 Every available option is listed under [`feed-options`](#feed-options) below.
 
 ### All `feed-field` values
 
 #### Instagram post fields
 
-| Attribute    | Attribute       | Type                              |
-| ------------ | --------------- | --------------------------------- |
-| `feed-field` | `img`           | image URL                         |
-| `feed-field` | `bg`            | image URL (as `background-image`) |
-| `feed-field` | `link`          | URL                               |
-| `feed-field` | `caption`       | string (innerHTML)                |
-| `feed-field` | `like-count`    | number (compact)                  |
-| `feed-field` | `comment-count` | number (compact)                  |
-| `feed-field` | `timestamp`     | date-time                         |
-| `feed-field` | `avatar`        | image URL                         |
-| `feed-field` | `name`          | string                            |
-| `feed-field` | `username`      | string                            |
+| Attribute       | JSON key       | Type                              |
+| --------------- | -------------- | --------------------------------- |
+| `img`           | `mediaUrl`     | image URL                         |
+| `bg`            | `mediaUrl`     | image URL (as `background-image`) |
+| `link`          | `permalink`    | URL                               |
+| `caption`       | `caption`      | string (innerHTML)                |
+| `like-count`    | `likeCount`    | number (compact)                  |
+| `comment-count` | `commentCount` | number (compact)                  |
+| `timestamp`     | `timestamp`    | date-time                         |
 
 #### Instagram profile fields
 
-| JSON key     | Attribute         | Type             |
-| ------------ | ----------------- | ---------------- |
-| `feed-field` | `avatar`          | image URL        |
-| `feed-field` | `name`            | string           |
-| `feed-field` | `username`        | string           |
-| `feed-field` | `bio`             | string           |
-| `feed-field` | `follower-count`  | number (compact) |
-| `feed-field` | `following-count` | number (compact) |
+| Attribute         | JSON key         | Type             |
+| ----------------- | ---------------- | ---------------- |
+| `avatar`          | `avatar`         | image URL        |
+| `name`            | `fullName`       | string           |
+| `username`        | `username`       | string           |
+| `bio`             | `bio`            | string           |
+| `follower-count`  | `followersCount` | number (compact) |
+| `following-count` | `followingCount` | number (compact) |
+
+{% hint style="info" %}
+Profile fields can also be placed _inside_ a post template — for example, to show the account avatar and handle on every card. They resolve to the same account-level value on every post.
+{% endhint %}
 
 #### Google Reviews post fields
 

@@ -1,11 +1,9 @@
 ---
-description: Learn about the FeedSpring product from a top-level overview.
+description: Static and dynamic rendering, loading states, locale formatting, and how each element type is handled.
 icon: chart-simple-horizontal
 ---
 
 # Rendering Behaviour
-
-## Rendering Behaviour
 
 How FeedSpring renders data into your markup: the two rendering modes, how templates appear, locale formatting, and what happens with text content.
 
@@ -83,7 +81,7 @@ This is the right choice for about 90% of feeds.
 
 #### Hybrid layouts
 
-Combine both on the same page by using two wrappers pointing at the same feed. See the featured + grid example in Filtering & Limits.
+Combine both on the same page by using two wrappers pointing at the same feed. See the featured + grid example in [Filtering & Limits](filtering-and-limits.md).
 
 ### The `appear` option
 
@@ -171,6 +169,6 @@ The element a `feed-field` sits on controls what happens:
 
 ### Next steps
 
-* Filtering & Limits — `limit`, `skip`, and dashboard filters
-* Attributes delivery method — start here if you are building with HTML
-* Attribute Reference — the full spec
+* [Filtering & Limits](filtering-and-limits.md) — `limit`, `skip`, and dashboard filters
+* [Attributes (HTML)](../delivery-methods/attributes-html.md) — start here if you are building with HTML
+* [Attributes Reference](../attributes-reference.md) — the full spec

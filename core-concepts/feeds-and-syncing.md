@@ -1,4 +1,5 @@
 ---
+description: What a feed is, how FeedSpring keeps it updated, and how often content refreshes on each plan.
 icon: arrows-spin
 ---
 

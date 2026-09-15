@@ -1,4 +1,5 @@
 ---
+description: How FeedSpring structures feed data into posts and fields, and why that structure is the same across every delivery method.
 icon: database
 ---
 

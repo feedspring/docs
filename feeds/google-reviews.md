@@ -1,11 +1,9 @@
 ---
-description: Get started building a beautiful feed today!
+description: Display Google Reviews with star ratings, reviewer details, and aggregate rating data.
 icon: google
 ---
 
 # Google Reviews
-
-## Google Reviews
 
 Use FeedSpring to display Google Reviews on your site, star ratings, reviewer information, and aggregate data like total review count and average rating.
 

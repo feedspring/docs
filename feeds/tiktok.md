@@ -1,11 +1,9 @@
 ---
-description: Get started building a beautiful feed today!
+description: Display TikTok videos with thumbnails, inline playback, engagement counts and profile data.
 icon: tiktok
 ---
 
 # TikTok
-
-## TikTok
 
 Use FeedSpring to display TikTok videos on your site, thumbnails, playable video, engagement counts, and profile information.
 

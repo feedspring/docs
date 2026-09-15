@@ -1,11 +1,9 @@
 ---
-description: Get started building a beautiful feed today!
+description: Add a live feed to any HTML page with two attributes. No build step, no backend, no JavaScript to write.
 icon: html5
 ---
 
 # Attributes (HTML)
-
-## Attributes (HTML)
 
 The Attributes delivery method lets you build a feed into any HTML page by adding two attributes to your own markup: one on a wrapper element, one on each post. FeedSpring handles data fetching, field injection, and updates automatically.
 
@@ -15,7 +13,7 @@ It is the fastest way to get a live feed on any website. No build step, no backe
 
 Attributes is the right choice when:
 
-* You are building in Webflow, Wordpress, Shopify, or any tool that exposes HTML and `<head>` access.
+* You are building in Webflow, WordPress, Shopify, Squarespace, Wix, Webstudio, or any tool that exposes HTML and `<head>` access.
 * You want full design control without writing React or consuming an API.
 * You need the fastest possible setup with no package installs or build tooling.
 * You are prototyping, building marketing pages, or working in a no-code or low-code environment.
@@ -138,10 +136,10 @@ For every other field, values are written as plain text.
 
 Available field names depend on the feed source. See the per-source pages for the full list:
 
-* Instagram fields
-* Google Reviews fields
-* TikTok fields
-* Dribbble fields
+* [Instagram fields](../feeds/instagram.md)
+* [Google Reviews fields](../feeds/google-reviews.md)
+* [TikTok fields](../feeds/tiktok.md)
+* [Dribbble fields](../feeds/dribbble.md)
 
 ### The `bg` field
 
