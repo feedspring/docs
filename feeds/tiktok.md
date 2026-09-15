@@ -39,6 +39,7 @@ Feed ID prefix: `tiktok_...`
 | `feed-field="avatar"`          | `avatarUrl`      | image URL    | Profile avatar.                                                                                                                    |
 | `feed-field="name"`            | `displayName`    | string       | Profile display name. Written with `innerHTML`.                                                                                    |
 | `feed-field="bio"`             | `bio`            | string       | Profile bio. Written with `innerHTML`.                                                                                             |
+| `feed-field="profile-link"`    | `profileLink`    | URL          | Link to the profile on TikTok. Sets the `href` of an `<a>`. See the known issue below.                                            |
 | `feed-field="follower-count"`  | `followerCount`  | number       | Total followers, formatted with compact locale notation.                                                                           |
 | `feed-field="following-count"` | `followingCount` | number       | Total accounts followed, formatted with compact locale notation.                                                                   |
 | `feed-field="total-likes"`     | `likesCount`     | number       | Total likes across all the account's videos, formatted with compact locale notation.                                               |
@@ -69,6 +70,10 @@ The `verified` attribute works as a conditional gate. Place it on any element th
   <svg feed-field="verified"><!-- blue checkmark icon --></svg>
 </header>
 ```
+
+{% hint style="warning" %}
+**Known issue:** `feed-field="profile-link"` does not currently work. The TikTok script registers the field with a trailing space, so only `feed-field="profile-link "` matches. A fix is in progress; until then, link to the profile with a static URL.
+{% endhint %}
 
 ### TikTok-specific notes
 

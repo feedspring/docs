@@ -193,6 +193,7 @@ Profile fields can also be placed _inside_ a post template — for example, to s
 | Attribute         | JSON key         | Type               |
 | ----------------- | ---------------- | ------------------ |
 | `avatar`          | `avatarUrl`      | image URL          |
+| `profile-link`    | `profileLink`    | URL (known issue)  |
 | `name`            | `displayName`    | string (innerHTML) |
 | `bio`             | `bio`            | string (innerHTML) |
 | `follower-count`  | `followerCount`  | number (compact)   |
@@ -207,6 +208,7 @@ Profile fields can also be placed _inside_ a post template — for example, to s
 | `img`       | `image`       | image URL |
 | `link`      | `url`         | URL       |
 | `title`     | `title`       | string    |
+| `tag`       | `tags`        | repeater (known issue) |
 | `timestamp` | `publishedAt` | date-time |
 
 #### Dribbble profile fields
@@ -290,6 +292,7 @@ Attributes that work the same across feeds, mapping to different JSON keys:
 | `avatar`          | All                         | `avatar`, `author.photoUrl`, `avatarUrl`              |
 | `name`            | All                         | `fullName`, `author.name`, `displayName`, `name`      |
 | `bio`             | Instagram, TikTok, Dribbble | `bio`                                                 |
+| `profile-link`    | TikTok, Dribbble            | `profileLink`, `url`                                  |
 | `like-count`      | Instagram, TikTok           | `likeCount`                                           |
 | `comment-count`   | Instagram, TikTok           | `commentCount`                                        |
 | `follower-count`  | Instagram, TikTok           | `followersCount` / `followerCount`                    |
@@ -302,7 +305,18 @@ Attributes that work the same across feeds, mapping to different JSON keys:
 | Instagram      | `bg`, `caption`, `username`                                                                |
 | Google Reviews | `review`, `rating`, `rating-string`, `star`, `star-inactive`, `average-rating`, `total`    |
 | TikTok         | `video`, `description`, `duration`, `view-count`, `share-count`, `total-likes`, `verified` |
-| Dribbble       | `location`, `followers`, `profile-link`                                                    |
+| Dribbble       | `location`, `followers`, `tag`                                                             |
+
+### Known issues
+
+These are bugs in the current attribute scripts. Fixes are in progress.
+
+| Issue | Workaround |
+| ----- | ---------- |
+| Google Reviews: with `render:dynamic`, stars multiply on every review after the first. | Use static rendering: repeat the post template once per review. |
+| Counts that are exactly `0` render as blank instead of `0`. | Hide the empty element and its label with CSS, e.g. `:has(> [feed-field]:empty)`. |
+| TikTok: `feed-field="profile-link"` does not match, because the field is registered with a trailing space. | Use a static link to the profile. |
+| Dribbble: `feed-field="tag"` leaves out the last tag on each shot. | None yet. |
 
 ### Gotchas and behaviours worth knowing
 

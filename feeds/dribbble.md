@@ -23,6 +23,7 @@ Feed ID prefix: `dribbble_...`
 | `feed-field="img"`       | `image`       | image URL | The shot image. Sets the `src` of an `<img>`.                                                                          |
 | `feed-field="link"`      | `url`         | URL       | Link to the shot on Dribbble. Sets the `href` of an `<a>`.                                                             |
 | `feed-field="title"`     | `title`       | string    | Shot title.                                                                                                            |
+| `feed-field="tag"`       | `tags`        | repeater  | Shot tags. The element is repeated once per tag. See the known issue below.                                             |
 | `feed-field="timestamp"` | `publishedAt` | date-time | When the shot was published. See [timestamp formatting](../delivery-methods/attributes-html.md#feed-timestamp). |
 
 ### Profile fields
@@ -35,6 +36,10 @@ Feed ID prefix: `dribbble_...`
 | `feed-field="location"`     | `location`       | string    | Profile location.                                             |
 | `feed-field="profile-link"` | `url`            | URL       | Link to the profile on Dribbble. Sets the `href` of an `<a>`. |
 | `feed-field="followers"`    | `followersCount` | number    | Total followers, formatted with compact locale notation.      |
+
+{% hint style="warning" %}
+**Known issue:** `feed-field="tag"` currently leaves out the last tag on each shot, so a shot with three tags shows two. A fix is in progress.
+{% endhint %}
 
 ### Dribbble-specific notes
 

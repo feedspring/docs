@@ -106,8 +106,8 @@ Just a preview, view all attributes on the [Dribbble](../feeds/dribbble.md) feed
 
 * `img`
 * `title`
-* `tag`
-* `location`
+* `link`
+* `timestamp`
 
 👉 See each feed pages for the full list of fields.
 
