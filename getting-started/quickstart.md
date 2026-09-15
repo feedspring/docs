@@ -124,13 +124,14 @@ FeedSpring looks for three things:
 
 If you're not using Attributes (HTML) or Webflow:
 
-* React → use React components
-* API → fetch data directly
-* Framer → use Framer components
+* **React or Next.js** → see [React Components](../delivery-methods/react-components.md)
+* **Framer** → see [Framer Components](../delivery-methods/framer-components.md)
+* **Raw data access** → see the [API (GraphQL)](../delivery-methods/api-graphql.md)
 
-### Plan Update Rates <a href="#support-and-feedback" id="support-and-feedback"></a>
+***
 
-Discover the post limits, and frequency of updates for your feeds across various platforms based on your chosen plan. Whether you opt for the Free, Personal, Pro, or Enterprise plan, you can easily compare how many posts are included.
+### Plan update rates
 
-<table><thead><tr><th width="137">Platform</th><th width="163">Free</th><th width="149">Personal</th><th width="140">Pro</th><th>Enterprise</th></tr></thead><tbody><tr><td>Instagram</td><td>8 Posts (24hrs)</td><td>12 Posts (6hrs)</td><td>12 Posts (1hr)</td><td>12 Posts (1hr)</td></tr><tr><td>Google</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr><tr><td>TikTok</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr><tr><td>Dribbble</td><td>8 Posts (24hrs)</td><td>16 Posts (6hrs)</td><td>32 Posts (1hr)</td><td>200 Posts (1hr)</td></tr></tbody></table>
+Post limits and refresh frequency depend on your plan and feed source.
 
+👉 See [Plan update rates](../core-concepts/feeds-and-syncing.md#plan-update-rates) in Feeds & Syncing for the full breakdown.

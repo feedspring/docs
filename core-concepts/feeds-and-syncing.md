@@ -80,7 +80,7 @@ This includes:
 
 Each platform provides slightly different data.
 
-👉 See [feed plan rates](feeds-and-syncing.md#plan-update-rates) for full details.
+👉 See [Plan update rates](#plan-update-rates) below for full details.
 
 <figure><img src="../.gitbook/assets/divider-blog.png" alt=""><figcaption></figcaption></figure>
 
@@ -133,7 +133,7 @@ This means:
 
 Discover the post limits and update frequency for your feeds across each platform, based on your plan. This helps you understand how often your content refreshes and how many items are available.
 
-| Platform  | Free             | Personal         | Pro             | Enterprise       |
+| Platform  | Free             | Personal         | Business        | Enterprise       |
 | --------- | ---------------- | ---------------- | --------------- | ---------------- |
 | Instagram | 8 posts (24 hrs) | 12 posts (6 hrs) | 12 posts (1 hr) | 12 posts (1 hr)  |
 | Google    | 8 posts (24 hrs) | 16 posts (6 hrs) | 32 posts (1 hr) | 200 posts (1 hr) |
@@ -141,6 +141,8 @@ Discover the post limits and update frequency for your feeds across each platfor
 | Dribbble  | 8 posts (24 hrs) | 16 posts (6 hrs) | 32 posts (1 hr) | 200 posts (1 hr) |
 
 {% hint style="info" %}
+Instagram is capped at 12 posts on every paid plan. This is a limit of the Instagram API, not of FeedSpring.
+
 Update frequency may vary slightly depending on the platform and availability of new content.
 {% endhint %}
 
