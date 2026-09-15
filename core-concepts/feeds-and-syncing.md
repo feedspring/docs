@@ -112,7 +112,7 @@ Some controls are applied:
 * In your layout (e.g. limit)
 * In your dashboard (e.g. filtering rules)
 
-👉 Learn more in [Filtering & Limits](filtering-and-limits.md)
+👉 Learn more in [Filtering & Limits](../attributes/feed-options.md)
 
 <figure><img src="../.gitbook/assets/divider-blog.png" alt=""><figcaption></figcaption></figure>
 

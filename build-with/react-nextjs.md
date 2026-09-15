@@ -26,7 +26,7 @@ Because the props are exposed, you can change how a component looks and behaves 
 In Framer these appear as property controls in the right-hand sidebar. In a React app they are ordinary component props.
 
 {% hint style="info" %}
-If you are building in Framer, start here. See [Framer Components](framer-components.md) for the step-by-step.
+If you are building in Framer, start here. See [Framer Components](framer.md) for the step-by-step.
 {% endhint %}
 
 ### Building your own
@@ -63,7 +63,7 @@ Things to know:
 * Avoid adding the script more than once if the route remounts frequently.
 * This renders on the client, so feed content is not present in the server-rendered HTML. If you need the feed indexed for SEO, use the API instead.
 
-See [Attributes (HTML)](attributes-html.md) for the full attribute model.
+See [Attributes (HTML)](../attributes/overview.md) for the full attribute model.
 
 #### Option 2 — The GraphQL API
 
@@ -120,7 +120,7 @@ Four things that catch people out:
 
 No API key is needed — the Feed ID is the credential and is safe to use in browser code.
 
-See [API (GraphQL)](api-graphql.md) for the full reference, image transforms, and error handling.
+See [API (GraphQL)](../graphql-api/overview.md) for the full reference, image transforms, and error handling.
 
 ### Which option to choose
 
@@ -135,7 +135,7 @@ See [API (GraphQL)](api-graphql.md) for the full reference, image transforms, an
 
 ### Next steps
 
-* [Framer Components](framer-components.md) — using these components in Framer
-* [Attributes (HTML)](attributes-html.md) — the full attribute model
-* [API (GraphQL)](api-graphql.md) — fetching feed data directly
-* [Attributes Reference](../attributes-reference.md) — every field, for every source
+* [Framer Components](framer.md) — using these components in Framer
+* [Attributes (HTML)](../attributes/overview.md) — the full attribute model
+* [API (GraphQL)](../graphql-api/overview.md) — fetching feed data directly
+* [Attributes Reference](../attributes/reference.md) — every field, for every source

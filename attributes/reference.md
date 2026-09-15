@@ -340,7 +340,7 @@ These are bugs in the current attribute scripts. Fixes are in progress.
 
 ### Next steps
 
-* [Attributes delivery method guide](delivery-methods/attributes-html.md)
-* [Per-feed field pages](README.md#what-this-documentation-covers)
-* [Feed options reference](core-concepts/filtering-and-limits.md)
-* [Rendering modes](core-concepts/rendering-behaviour.md)
+* [Attributes delivery method guide](overview.md)
+* [Per-feed field pages](../README.md#what-this-documentation-covers)
+* [Feed options reference](feed-options.md)
+* [Rendering modes](rendering.md)

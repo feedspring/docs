@@ -11,10 +11,10 @@ Feed ID prefix: `inst_...`
 
 ### Render Instagram with
 
-* [Attributes](../delivery-methods/attributes-html.md), add Instagram to any HTML page
-* [React](../delivery-methods/react-components.md), drop a component into your React app
-* [Framer](../delivery-methods/framer-components.md), use the Instagram component in Framer
-* [API](../delivery-methods/api-graphql.md), fetch Instagram data directly
+* [Attributes](../attributes/overview.md), add Instagram to any HTML page
+* [React](../build-with/react-nextjs.md), drop a component into your React app
+* [Framer](../build-with/framer.md), use the Instagram component in Framer
+* [API](../graphql-api/overview.md), fetch Instagram data directly
 
 ### Post fields
 
@@ -26,7 +26,7 @@ Feed ID prefix: `inst_...`
 | `feed-field="caption"`       | `caption`      | string    | Post caption. Written with `innerHTML`, so HTML in the caption is rendered.                                            |
 | `feed-field="like-count"`    | `likeCount`    | number    | Number of likes, formatted with compact locale notation (e.g. `1.2K`).                                                 |
 | `feed-field="comment-count"` | `commentCount` | number    | Number of comments, formatted with compact locale notation.                                                            |
-| `feed-field="timestamp"`     | `timestamp`    | date-time | When the post was published. See [timestamp formatting](../delivery-methods/attributes-html.md#feed-timestamp). |
+| `feed-field="timestamp"`     | `timestamp`    | date-time | When the post was published. See [timestamp formatting](../attributes/overview.md#feed-timestamp). |
 
 ### Profile fields
 
@@ -81,5 +81,5 @@ A basic Instagram grid using the attributes delivery method:
 ### Next steps
 
 * [Pick a delivery method](../README.md#where-to-start) to render Instagram
-* [Filtering & Limits](../core-concepts/filtering-and-limits.md) for limit, skip, and dashboard filters
+* [Filtering & Limits](../attributes/feed-options.md) for limit, skip, and dashboard filters
 * [Browse other feed sources](../README.md#what-this-documentation-covers)

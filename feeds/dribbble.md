@@ -11,10 +11,10 @@ Feed ID prefix: `dribbble_...`
 
 ### Render Dribbble with
 
-* [Attributes](../delivery-methods/attributes-html.md), add Dribbble to any HTML page
-* [React](../delivery-methods/react-components.md), drop a component into your React app
-* [Framer](../delivery-methods/framer-components.md), use the Dribbble component in Framer
-* [API](../delivery-methods/api-graphql.md), fetch Dribbble data directly
+* [Attributes](../attributes/overview.md), add Dribbble to any HTML page
+* [React](../build-with/react-nextjs.md), drop a component into your React app
+* [Framer](../build-with/framer.md), use the Dribbble component in Framer
+* [API](../graphql-api/overview.md), fetch Dribbble data directly
 
 ### Post fields
 
@@ -24,7 +24,7 @@ Feed ID prefix: `dribbble_...`
 | `feed-field="link"`      | `url`         | URL       | Link to the shot on Dribbble. Sets the `href` of an `<a>`.                                                             |
 | `feed-field="title"`     | `title`       | string    | Shot title.                                                                                                            |
 | `feed-field="tag"`       | `tags`        | repeater  | Shot tags. The element is repeated once per tag. See the known issue below.                                             |
-| `feed-field="timestamp"` | `publishedAt` | date-time | When the shot was published. See [timestamp formatting](../delivery-methods/attributes-html.md#feed-timestamp). |
+| `feed-field="timestamp"` | `publishedAt` | date-time | When the shot was published. See [timestamp formatting](../attributes/overview.md#feed-timestamp). |
 
 ### Profile fields
 
@@ -92,5 +92,5 @@ A portfolio grid using the attributes delivery method:
 ### Next steps
 
 * [Pick a delivery method](../README.md#where-to-start) to render Dribbble
-* [Filtering & Limits](../core-concepts/filtering-and-limits.md) for limit, skip, and dashboard filters
+* [Filtering & Limits](../attributes/feed-options.md) for limit, skip, and dashboard filters
 * [Browse other feed sources](../README.md#what-this-documentation-covers)

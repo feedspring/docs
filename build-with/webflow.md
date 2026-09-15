@@ -21,7 +21,7 @@ The three core attributes are the same everywhere:
 | `feedspring="post"`         | A repeating element inside the wrapper | Marks the template that repeats for each post      |
 | `feed-field="FIELD-NAME"`   | Any element inside a post              | Targets where a piece of content is injected       |
 
-For the full attribute model, rendering modes, and field behaviour, see [Attributes (HTML)](attributes-html.md).
+For the full attribute model, rendering modes, and field behaviour, see [Attributes (HTML)](../attributes/overview.md).
 
 ### **Quick start**
 
@@ -75,7 +75,7 @@ Inside the post wrapper, add the elements you want (images, text, links) and giv
 * Name: `feed-field`
 * Value: the field name (e.g. `img`, `caption`, `timestamp`)
 
-Remember to place image fields on Image elements and link fields on Link elements — the element type determines the behaviour. See [Rendering Behaviour](../core-concepts/rendering-behaviour.md) for the full element rules.
+Remember to place image fields on Image elements and link fields on Link elements — the element type determines the behaviour. See [Rendering Behaviour](../attributes/rendering.md) for the full element rules.
 
 #### **5. Publish**
 
@@ -96,7 +96,7 @@ Field names depend on the feed source. See the per-source pages for the full lis
 
 #### **Next steps**
 
-* [Attributes (HTML)](attributes-html.md) — the full attribute model
-* [Filtering & Limits](../core-concepts/filtering-and-limits.md) — `limit`, `skip`, and dashboard filters
-* [Rendering Behaviour](../core-concepts/rendering-behaviour.md) — static vs dynamic, `appear`, locale
-* [Attributes Reference](../attributes-reference.md) — every field, for every source
+* [Attributes (HTML)](../attributes/overview.md) — the full attribute model
+* [Filtering & Limits](../attributes/feed-options.md) — `limit`, `skip`, and dashboard filters
+* [Rendering Behaviour](../attributes/rendering.md) — static vs dynamic, `appear`, locale
+* [Attributes Reference](../attributes/reference.md) — every field, for every source

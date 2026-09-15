@@ -216,11 +216,11 @@ The script and markup are the same everywhere. The only thing that changes is wh
 
 **Plain HTML, Shopify, Wordpress, or any CMS.** Paste the `<script>` tag inside `<head>`. Add your markup anywhere in the `<body>`. No build step, no package install.
 
-**React, Vue, Svelte, or any modern framework.** The Attributes method works inside a framework as long as the script has run before your component mounts. For most frameworks we recommend the dedicated [React component delivery method](react-components.md) instead, which is designed for component-based environments.
+**React, Vue, Svelte, or any modern framework.** The Attributes method works inside a framework as long as the script has run before your component mounts. For most frameworks we recommend the dedicated [React component delivery method](../build-with/react-nextjs.md) instead, which is designed for component-based environments.
 
 ### Next steps
 
 * See which fields are available for your feed in the [Feeds reference](../README.md#what-this-documentation-covers)
-* Tune filtering and limits with [Filtering & Limits](../core-concepts/filtering-and-limits.md)
-* Understand [Rendering Behaviour](../core-concepts/rendering-behaviour.md) (static vs dynamic, `appear`, locale)
-* If you are an AI agent building a feed, see the [full attribute reference](../attributes-reference.md)
+* Tune filtering and limits with [Filtering & Limits](feed-options.md)
+* Understand [Rendering Behaviour](rendering.md) (static vs dynamic, `appear`, locale)
+* If you are an AI agent building a feed, see the [full attribute reference](reference.md)

@@ -66,7 +66,7 @@ Skips the first N items before rendering, then `limit` caps how many of the rema
 <section feedspring="inst_..." feed-options="render:dynamic|limit:8|skip:1|lang:en-GB">
 ```
 
-For rendering options, see [Rendering Behaviour](rendering-behaviour.md).
+For rendering options, see [Rendering Behaviour](rendering.md).
 
 ### Per-feed filtering examples
 
@@ -106,6 +106,6 @@ The first wrapper renders index 0, the second wrapper skips it and renders index
 
 ### Next steps
 
-* [Rendering Behaviour](rendering-behaviour.md) — static vs dynamic, `appear`, `lang`, loading states
-* [Attributes (HTML)](../delivery-methods/attributes-html.md) — how to apply these options in HTML
-* [Attributes Reference](../attributes-reference.md) — the full spec
+* [Rendering Behaviour](rendering.md) — static vs dynamic, `appear`, `lang`, loading states
+* [Attributes (HTML)](overview.md) — how to apply these options in HTML
+* [Attributes Reference](reference.md) — the full spec

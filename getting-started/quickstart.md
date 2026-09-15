@@ -117,7 +117,7 @@ FeedSpring looks for three things:
   * [Google Reviews](../feeds/google-reviews.md)
   * [TikTok](../feeds/tiktok.md)
   * [Dribbble](../feeds/dribbble.md)
-* Learn more about [feed options](../core-concepts/filtering-and-limits.md)
+* Learn more about [feed options](../attributes/feed-options.md)
 
 ***
 
@@ -125,9 +125,9 @@ FeedSpring looks for three things:
 
 If you're not using Attributes (HTML) or Webflow:
 
-* **React or Next.js** → see [React Components](../delivery-methods/react-components.md)
-* **Framer** → see [Framer Components](../delivery-methods/framer-components.md)
-* **Raw data access** → see the [API (GraphQL)](../delivery-methods/api-graphql.md)
+* **React or Next.js** → see [React Components](../build-with/react-nextjs.md)
+* **Framer** → see [Framer Components](../build-with/framer.md)
+* **Raw data access** → see the [API (GraphQL)](../graphql-api/overview.md)
 
 ***
 

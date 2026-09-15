@@ -88,20 +88,20 @@ For account-level elements, the component reads from the feed's profile data:
 * Profile avatar
 * Profile username
 
-Different feed sources (Google Reviews, TikTok, Dribbble) expose different fields. See the [Attributes Reference](../attributes-reference.md) for the full list.
+Different feed sources (Google Reviews, TikTok, Dribbble) expose different fields. See the [Attributes Reference](../attributes/reference.md) for the full list.
 
 **Building a fully custom component**
 
 If you need a layout the property controls can't reach, open a code component in Framer and write it yourself. You have two ways to get feed data into it:
 
-* **[Attributes](attributes-html.md)** — load the attributes script and use `feedspring` and `feed-field` attributes in your JSX. Fastest, no data layer.
-* **[API (GraphQL)](api-graphql.md)** — fetch the feed yourself and render from raw data. Use this when you need to transform or combine data, or share one data layer across systems.
+* **[Attributes](../attributes/overview.md)** — load the attributes script and use `feedspring` and `feed-field` attributes in your JSX. Fastest, no data layer.
+* **[API (GraphQL)](../graphql-api/overview.md)** — fetch the feed yourself and render from raw data. Use this when you need to transform or combine data, or share one data layer across systems.
 
-See [React Components](react-components.md) for worked examples of both.
+See [React Components](react-nextjs.md) for worked examples of both.
 
 **Next steps**
 
-* [React Components](react-components.md) — the components behind the Framer library, and how to build your own
-* [Attributes Reference](../attributes-reference.md) — every available field, for every feed source
+* [React Components](react-nextjs.md) — the components behind the Framer library, and how to build your own
+* [Attributes Reference](../attributes/reference.md) — every available field, for every feed source
 * [Posts & Fields](../core-concepts/posts-and-fields.md) — how feeds and fields are structured
-* [API (GraphQL)](api-graphql.md) — fetching feed data directly
+* [API (GraphQL)](../graphql-api/overview.md) — fetching feed data directly

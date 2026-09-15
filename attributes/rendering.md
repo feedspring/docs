@@ -81,7 +81,7 @@ This is the right choice for about 90% of feeds.
 
 #### Hybrid layouts
 
-Combine both on the same page by using two wrappers pointing at the same feed. See the featured + grid example in [Filtering & Limits](filtering-and-limits.md).
+Combine both on the same page by using two wrappers pointing at the same feed. See the featured + grid example in [Filtering & Limits](feed-options.md).
 
 ### The `appear` option
 
@@ -169,6 +169,6 @@ The element a `feed-field` sits on controls what happens:
 
 ### Next steps
 
-* [Filtering & Limits](filtering-and-limits.md) — `limit`, `skip`, and dashboard filters
-* [Attributes (HTML)](../delivery-methods/attributes-html.md) — start here if you are building with HTML
-* [Attributes Reference](../attributes-reference.md) — the full spec
+* [Filtering & Limits](feed-options.md) — `limit`, `skip`, and dashboard filters
+* [Attributes (HTML)](overview.md) — start here if you are building with HTML
+* [Attributes Reference](reference.md) — the full spec

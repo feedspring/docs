@@ -11,10 +11,10 @@ Feed ID prefix: `tiktok_...`
 
 ### Render TikTok with
 
-* [Attributes](../delivery-methods/attributes-html.md), add TikTok to any HTML page
-* [React](../delivery-methods/react-components.md), drop a component into your React app
-* [Framer](../delivery-methods/framer-components.md), use the TikTok component in Framer
-* [API](../delivery-methods/api-graphql.md), fetch TikTok data directly
+* [Attributes](../attributes/overview.md), add TikTok to any HTML page
+* [React](../build-with/react-nextjs.md), drop a component into your React app
+* [Framer](../build-with/framer.md), use the TikTok component in Framer
+* [API](../graphql-api/overview.md), fetch TikTok data directly
 
 ### Post fields
 
@@ -30,7 +30,7 @@ Feed ID prefix: `tiktok_...`
 | `feed-field="like-count"`    | `likeCount`     | number            | Like count, formatted with compact locale notation.                                                                     |
 | `feed-field="comment-count"` | `commentCount`  | number            | Comment count, formatted with compact locale notation.                                                                  |
 | `feed-field="share-count"`   | `shareCount`    | number            | Share count.                                                                                                            |
-| `feed-field="timestamp"`     | `createTime`    | date-time         | When the video was published. See [timestamp formatting](../delivery-methods/attributes-html.md#feed-timestamp). |
+| `feed-field="timestamp"`     | `createTime`    | date-time         | When the video was published. See [timestamp formatting](../attributes/overview.md#feed-timestamp). |
 
 ### Profile fields
 
@@ -116,5 +116,5 @@ A video grid using the attributes delivery method:
 ### Next steps
 
 * [Pick a delivery method](../README.md#where-to-start) to render TikTok
-* [Filtering & Limits](../core-concepts/filtering-and-limits.md) for limit, skip, and dashboard filters
+* [Filtering & Limits](../attributes/feed-options.md) for limit, skip, and dashboard filters
 * [Browse other feed sources](../README.md#what-this-documentation-covers)
