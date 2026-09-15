@@ -37,7 +37,7 @@ Only load the scripts for feed types you are using.
 | Source         | URL                                                 |
 | -------------- | --------------------------------------------------- |
 | Instagram      | `https://scripts.feedspring.com/instagram-attrs.js` |
-| Google Reviews | `https://scripts.feedspring.com/google-attrs.js`    |
+| Google Reviews | `https://scripts.feedspring.com/google-reviews-attrs.js`    |
 | TikTok         | `https://scripts.feedspring.com/tiktok-attrs.js`    |
 | Dribbble       | `https://scripts.feedspring.com/dribbble-attrs.js`  |
 

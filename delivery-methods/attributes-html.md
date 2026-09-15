@@ -53,7 +53,7 @@ Paste the script for your feed type into your site's `<head>`. In Webflow, that'
 <script src="https://scripts.feedspring.com/instagram-attrs.js" async defer></script>
 
 <!-- Google Reviews -->
-<script src="https://scripts.feedspring.com/google-attrs.js" async defer></script>
+<script src="https://scripts.feedspring.com/google-reviews-attrs.js" async defer></script>
 
 <!-- TikTok -->
 <script src="https://scripts.feedspring.com/tiktok-attrs.js" async defer></script>
