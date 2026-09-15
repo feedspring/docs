@@ -1,11 +1,11 @@
 ---
-description: Static and dynamic rendering, loading states, locale formatting, and how each element type is handled.
+description: Static and dynamic rendering, combined layouts, and how rendered posts appear.
 icon: chart-simple-horizontal
 ---
 
-# Rendering Behaviour
+# Rendering
 
-How FeedSpring renders data into your markup: the two rendering modes, how templates appear, locale formatting, and what happens with text content.
+How FeedSpring turns your post templates into rendered posts: the two rendering modes, combining them in one layout, and how rendered posts appear.
 
 ### Rendering modes
 
@@ -69,6 +69,15 @@ Use dynamic when:
 
 This is the right choice for about 90% of feeds.
 
+{% hint style="danger" %}
+**Review needed (Ilya): `limit` and `skip` behaviour.** The docs and the current script disagree, so this section is not final.
+
+* **Current script:** in dynamic rendering, `limit` is a maximum item *index*, so `skip:2|limit:4` shows 2 posts. In static rendering, `limit` is ignored. With `skip`, the unused template stays on the page as an empty card.
+* **Intended behaviour:** `limit` is the number of posts shown, in both rendering modes, so `skip:2|limit:4` shows 4 posts.
+
+Confirm which behaviour the docs should describe (and whether the script is changing), then update this section and remove this callout.
+{% endhint %}
+
 #### Choosing between them
 
 |                   | Dynamic                 | Static                                  |
@@ -115,60 +124,7 @@ Forces the rendered template to `display: flex`. Useful when the template uses f
 <article feedspring="post" feed-options="appear:display-flex">
 ```
 
-### Loading state
-
-If you want to show a custom placeholder while the feed loads, wrap it in an element with `feedspring="loading"`. FeedSpring removes this element once feed rendering starts:
-
-```html
-<div feedspring="inst_YOUR-FEED-ID" feed-options="render:dynamic">
-  <div feedspring="loading">
-    <p>Loading posts...</p>
-  </div>
-  <article feedspring="post">
-    <img feed-field="img" alt="" />
-  </article>
-</div>
-```
-
-For a shimmer or skeleton, style the `feedspring="loading"` element however you want. The rule is simple: it's in the DOM until the feed renders, then it's gone.
-
-### Locale and number formatting
-
-FeedSpring formats numbers (like, follower, view counts) with `Intl.NumberFormat` in compact notation. The result is locale-aware: `1,234` renders as `1.2K` in `en-US` and `1,2 k` in `fr-FR`.
-
-#### `lang:xx-XX`
-
-Set the locale explicitly:
-
-```html
-<section feedspring="inst_..." feed-options="lang:en-GB">
-```
-
-Any standard [BCP 47 locale string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument) is accepted.
-
-#### `lang:auto`
-
-Use the browser's runtime locale instead of defaulting to `en-US`:
-
-```html
-<section feedspring="inst_..." feed-options="lang:auto">
-```
-
-Good for multilingual sites where you want the feed to match each visitor's browser settings.
-
-### Element behaviour by type
-
-The element a `feed-field` sits on controls what happens:
-
-| Element           | Behaviour                                                   |
-| ----------------- | ----------------------------------------------------------- |
-| `<img>`           | Sets `src` to the field value. Removes `srcset` if present. |
-| `<a>`             | Sets `href` to the field value.                             |
-| `<iframe>`        | Sets `src` to a derived embed URL (TikTok `video` only).    |
-| Any other element | Inserts field value as text or HTML                         |
-
 ### Next steps
 
-* [Filtering & Limits](feed-options.md) — `limit`, `skip`, and dashboard filters
-* [Attributes (HTML)](overview.md) — start here if you are building with HTML
-* [Attributes Reference](reference.md) — the full spec
+* [Feed Options](feed-options.md) — `limit`, `skip` and `lang`
+* [Loading & Events](loading-and-events.md) — placeholders while the feed loads

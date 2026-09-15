@@ -5,8 +5,6 @@ icon: book-bookmark
 
 # Attributes Reference
 
-## Attribute Reference
-
 Complete reference of every attribute used by the FeedSpring attributes delivery method.&#x20;
 
 This page exists as a single source of truth for humans and AI coding agents.
@@ -238,6 +236,15 @@ Works on all feeds that implement a `timestamp` field.
 
 ### `feed-options`
 
+{% hint style="danger" %}
+**Review needed (Ilya): `limit` and `skip` behaviour.** The docs and the current script disagree, so this section is not final.
+
+* **Current script:** in dynamic rendering, `limit` is a maximum item *index*, so `skip:2|limit:4` shows 2 posts. In static rendering, `limit` is ignored. With `skip`, the unused template stays on the page as an empty card.
+* **Intended behaviour:** `limit` is the number of posts shown, in both rendering modes, so `skip:2|limit:4` shows 4 posts.
+
+Confirm which behaviour the docs should describe (and whether the script is changing), then update this section and remove this callout.
+{% endhint %}
+
 Placed on the feed wrapper. Pipe-delimited pairs: `name:value|name:value`.
 
 #### Feed-level options
@@ -309,16 +316,18 @@ Attributes that work the same across feeds, mapping to different JSON keys:
 
 ### Known issues
 
-These are bugs in the current attribute scripts. Fixes are in progress.
-
-| Issue | Workaround |
-| ----- | ---------- |
-| Google Reviews: with `render:dynamic`, stars multiply on every review after the first. | Use static rendering: repeat the post template once per review. |
-| Counts that are exactly `0` render as blank instead of `0`. | Hide the empty element and its label with CSS, e.g. `:has(> [feed-field]:empty)`. |
-| TikTok: `feed-field="profile-link"` does not match, because the field is registered with a trailing space. | Use a static link to the profile. |
-| Dribbble: `feed-field="tag"` leaves out the last tag on each shot. | None yet. |
+See [Troubleshooting](troubleshooting.md) for current known issues and workarounds.
 
 ### Gotchas and behaviours worth knowing
+
+{% hint style="danger" %}
+**Review needed (Ilya): `limit` and `skip` behaviour.** The docs and the current script disagree, so this section is not final.
+
+* **Current script:** in dynamic rendering, `limit` is a maximum item *index*, so `skip:2|limit:4` shows 2 posts. In static rendering, `limit` is ignored. With `skip`, the unused template stays on the page as an empty card.
+* **Intended behaviour:** `limit` is the number of posts shown, in both rendering modes, so `skip:2|limit:4` shows 4 posts.
+
+Confirm which behaviour the docs should describe (and whether the script is changing), then update this section and remove this callout.
+{% endhint %}
 
 **`limit` and `skip` interaction.** In dynamic mode, `limit` is a max source index, not a max count. `skip:2|limit:4` renders items 2 and 3 only (2 items total). To render 4 items starting from index 2, use `skip:2|limit:6`.
 

@@ -1,36 +1,9 @@
 ---
-description: Control which items appear in your feed using dashboard filters and the limit and skip options.
+description: Control how many posts render, which posts to skip, and the locale used for numbers, with the feed-options attribute.
 icon: filter
 ---
 
-# Filtering & Limits
-
-Control what shows up in your feed. FeedSpring gives you two places to filter and limit content: the dashboard, and attributes on your feed wrapper.
-
-### The two places to filter
-
-**In your FeedSpring dashboard**, you set up rules that apply to the feed itself. These are server-side and persist across every page the feed appears on.
-
-**In your HTML markup**, you use the `feed-options` attribute to control how many items render and which to skip for this specific feed placement.
-
-Most setups use both. Dashboard filters shape the source data (e.g. hide reviews below 4 stars). Attribute options shape what renders on a specific page (e.g. show the first 4 items here, the next 6 on another page).
-
-### Dashboard filters
-
-Available filters depend on the feed source.
-
-#### Google Reviews
-
-* **High rating only** — exclude reviews below a star threshold you choose
-* **Keyword filter** — only include reviews that mention specific words
-
-Set both inside the FeedSpring dashboard under your Google Reviews feed.
-
-#### Instagram, TikTok, Dribbble
-
-Dashboard filtering is not currently available for these feeds. Use attribute options (below) to control rendering.
-
-### Attribute options
+# Feed Options
 
 `feed-options` is an attribute you place on the feed wrapper. It uses a pipe-delimited format:
 
@@ -42,7 +15,16 @@ Order does not matter. Unknown option names are silently ignored (watch for typo
 
 Without the dynamic attribute, you copy a post template for each item you want to show. With `render:dynamic`, you write one template and FeedSpring clones it for you. In both cases, `limit` caps the number of posts rendered.
 
-#### `limit:N`
+{% hint style="danger" %}
+**Review needed (Ilya): `limit` and `skip` behaviour.** The docs and the current script disagree, so this section is not final.
+
+* **Current script:** in dynamic rendering, `limit` is a maximum item *index*, so `skip:2|limit:4` shows 2 posts. In static rendering, `limit` is ignored. With `skip`, the unused template stays on the page as an empty card.
+* **Intended behaviour:** `limit` is the number of posts shown, in both rendering modes, so `skip:2|limit:4` shows 4 posts.
+
+Confirm which behaviour the docs should describe (and whether the script is changing), then update this section and remove this callout.
+{% endhint %}
+
+### `limit:N`
 
 `limit` applies in both rendering modes. In dynamic rendering, it caps how many posts are cloned. In static rendering, it caps how many of your post templates render — so if you place 6 post templates but set `limit:4`, only the first 4 render.
 
@@ -50,13 +32,37 @@ Without the dynamic attribute, you copy a post template for each item you want t
 <section feedspring="inst_..." feed-options="render:dynamic|limit:6">
 ```
 
-#### `skip:N`
+### `skip:N`
 
 Skips the first N items before rendering, then `limit` caps how many of the remaining items render. Useful when you want to display a featured item elsewhere on the page and show the rest in a grid.
 
 ```html
 <section feedspring="inst_..." feed-options="render:dynamic|skip:1|limit:6">
 ```
+
+### `lang` — locale and number formatting
+
+FeedSpring formats numbers (like, follower, view counts) with `Intl.NumberFormat` in compact notation. The result is locale-aware: `1,234` renders as `1.2K` in `en-US` and `1,2 k` in `fr-FR`.
+
+#### `lang:xx-XX`
+
+Set the locale explicitly:
+
+```html
+<section feedspring="inst_..." feed-options="lang:en-GB">
+```
+
+Any standard [BCP 47 locale string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument) is accepted.
+
+#### `lang:auto`
+
+Use the browser's runtime locale instead of defaulting to `en-US`:
+
+```html
+<section feedspring="inst_..." feed-options="lang:auto">
+```
+
+Good for multilingual sites where you want the feed to match each visitor's browser settings.
 
 ### Combining options with rendering options
 
@@ -68,15 +74,7 @@ Skips the first N items before rendering, then `limit` caps how many of the rema
 
 For rendering options, see [Rendering Behaviour](rendering.md).
 
-### Per-feed filtering examples
-
-#### Showing only 5-star reviews
-
-Set the high rating filter to 5 in the FeedSpring dashboard. Your feed will only return 5-star reviews, so all delivery methods (attributes, React, API) receive pre-filtered data.
-
-#### Showing reviews about a specific product
-
-Set the keyword filter in the dashboard (e.g. "checkout" or "customer service"). Your feed will only include reviews that mention those keywords.
+### Examples
 
 #### Showing the 4 most recent Instagram posts
 
@@ -104,8 +102,11 @@ Use two wrappers pointing at the same feed:
 
 The first wrapper renders index 0, the second wrapper skips it and renders indexes 1 through 6.
 
+### Dashboard filters
+
+Filtering by star rating or keyword happens in the FeedSpring dashboard, not in `feed-options`. See [Filtering](../core-concepts/filtering.md).
+
 ### Next steps
 
-* [Rendering Behaviour](rendering.md) — static vs dynamic, `appear`, `lang`, loading states
-* [Attributes (HTML)](overview.md) — how to apply these options in HTML
-* [Attributes Reference](reference.md) — the full spec
+* [Rendering](rendering.md) — static and dynamic rendering
+* [Attributes Reference](reference.md) — every option on one page
