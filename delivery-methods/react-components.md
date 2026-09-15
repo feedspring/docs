@@ -1,119 +1,141 @@
 ---
+description: Pre-made React components with exposed props, plus how to build your own.
 icon: react
 ---
 
 # React Components
 
-Use FeedSpring in React by copying a component into your project and rendering your feed data directly in your app.
+FeedSpring components are standard React components. That matters for two audiences: Framer users, because Framer runs React components natively, and React or Next.js developers, who can drop the same components into an app.
 
-This is a good option if you want more control than attributes, while still starting from a ready-made layout.
+Every component ships with its props exposed, so most people never write any code at all.
 
-#### When to use React
+### Pre-made components
 
-Use React components if you are:
+Browse the full library at [feedspring.com/components](https://www.feedspring.com/components). Each one is a complete, styled layout — grid, slider, highlight, carousel — built for a specific feed source.
 
-* Building with React or Next.js
-* Comfortable editing JSX and CSS
-* Creating custom layouts inside your frontend
-* Looking for more flexibility than attributes
+Because the props are exposed, you can change how a component looks and behaves without touching the code:
 
-If you want a no-code or visual setup, use Framer components or attributes instead. If you want to render feeds completely from scratch, use the API.
+* Feed ID
+* Number of items and skip count
+* Font settings
+* Container and card settings
+* Image sizing and radius
+* Overlay and background colour
+* Text truncation
 
-#### How it works
+In Framer these appear as property controls in the right-hand sidebar. In a React app they are ordinary component props.
 
-The React component fetches your feed from FeedSpring and renders the results in your app.
+{% hint style="info" %}
+If you are building in Framer, start here. See [Framer Components](framer-components.md) for the step-by-step.
+{% endhint %}
 
-You provide a feed ID, the component hits the feed endpoint, and the JSON comes back ready to render. This is the same data as the API, just wrapped in a working component so you do not have to write the fetch and render logic yourself.
+### Building your own
 
-#### What you control
+If a pre-made component isn't the right shape and you want to write the layout yourself, you have two options. Both give you the same feed data.
 
-Because the component lives in your codebase, every part of it is editable:
+#### Option 1 — Attributes
 
-* The JSX structure and layout
-* Number of items displayed
-* Styling and responsive behaviour
-* Loading and empty states
-* How each field is rendered
+Load the attributes script for your feed source and write plain JSX with `feedspring` and `feed-field` attributes. FeedSpring fills them in on the client.
 
-#### Example
-
-A minimal Instagram grid, based on the same pattern shipped in the components library:
-
-jsx
+This is the fastest route and needs no data layer.
 
 ```jsx
-function InstagramGrid({ feedId, posts = 8 }) {
-  const { items, loading } = useFeed(feedId, posts)
-
+export default function InstagramGrid() {
   return (
-    <section>
-      <div className="grid">
-        {loading
-          ? Array.from({ length: posts }, (_, i) => <div key={i} className="post" />)
-          : items.map((item, i) => (
-              <a key={item.id ?? i} href={item.permalink} target="_blank" rel="noopener noreferrer">
-                <img src={item.mediaUrl} alt="" />
-                <p>{item.caption ?? ''}</p>
-              </a>
-            ))
-        }
-      </div>
+    <section
+      feedspring="inst_YOUR-FEED-ID"
+      feed-options="render:dynamic|limit:8"
+    >
+      <article feedspring="post">
+        <img feed-field="img" alt="" />
+        <p feed-field="caption"></p>
+        <a feed-field="link" target="_blank" rel="noopener">View post</a>
+      </article>
     </section>
   )
 }
 ```
 
-The `useFeed` hook is a small wrapper around a `fetch` to the FeedSpring feed endpoint. You can keep it as a utility, replace it with your own data layer, or move the fetch server-side in a framework like Next.js.
+Things to know:
 
-#### Field names in React
+* Load the script client-side only. In Next.js, use `next/script` with `strategy="afterInteractive"`, or load it in a `useEffect`.
+* Custom attributes pass through JSX as plain strings — write them exactly as shown.
+* Avoid adding the script more than once if the route remounts frequently.
+* This renders on the client, so feed content is not present in the server-rendered HTML. If you need the feed indexed for SEO, use the API instead.
 
-The React component works with the **raw JSON field names** from the feed data. These are different from the short `feed-field` names used in the attributes delivery method. For example:
+See [Attributes (HTML)](attributes-html.md) for the full attribute model.
 
-| In React              | In Attributes           |
-| --------------------- | ----------------------- |
-| `item.mediaUrl`       | `feed-field="img"`      |
-| `item.permalink`      | `feed-field="link"`     |
-| `item.caption`        | `feed-field="caption"`  |
-| `feed.extra.avatar`   | `feed-field="avatar"`   |
-| `feed.extra.username` | `feed-field="username"` |
+#### Option 2 — The GraphQL API
 
-The data is the same, the access pattern is just React-native. See the Posts & fields page for the full mapping across delivery methods.
+Fetch the feed yourself and render it however you like. This is the right choice when you need server-side rendering, caching, SEO on feed content, or want to transform the data before it reaches your components.
 
-#### Post fields used in the Instagram component
+```jsx
+async function getFeed(publicKey) {
+  const res = await fetch('https://api.feedspring.com/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      query: `
+        query Feed($publicKey: String!) {
+          feed(publicKey: $publicKey) {
+            __typename
+            ... on InstagramFeedData {
+              profile { username fullName avatar { url(input: { width: 160, height: 160 }) } }
+              posts { nodes { id caption url image { url(input: { width: 800 }) } } }
+            }
+          }
+        }
+      `,
+      variables: { publicKey },
+    }),
+  })
 
-The default Instagram grid uses the following data from each post:
+  const { data, errors } = await res.json()
+  if (errors) throw new Error(errors[0].message)
+  return data.feed
+}
 
-* `item.mediaUrl` — the post image
-* `item.permalink` — link to the original post on Instagram
-* `item.caption` — the post caption
+export default async function InstagramGrid() {
+  const feed = await getFeed('inst_YOUR-FEED-ID')
 
-#### Profile fields used in the Instagram component
+  return (
+    <div className="grid">
+      {feed.posts.nodes.slice(0, 8).map((post) => (
+        <a key={post.id} href={post.url} target="_blank" rel="noopener noreferrer">
+          <img src={post.image?.url} alt="" />
+          <p>{post.caption}</p>
+        </a>
+      ))}
+    </div>
+  )
+}
+```
 
-For account-level elements like a header, the component reads from `feed.extra`:
+Four things that catch people out:
 
-* `feed.extra.avatar` — profile image
-* `feed.extra.username` — Instagram handle
+* **`feed` returns a union type.** You must select `__typename` and use an inline fragment (`... on InstagramFeedData`) matching your feed source.
+* **The collection is named per source** — `posts` for Instagram, `videos` for TikTok, `shots` for Dribbble, `reviews` for Google Reviews.
+* **Items sit inside `nodes`.** Query `posts { nodes { … } }` and read the array from `feed.posts.nodes`.
+* **Images are objects, not strings.** Request `image { url(input: { width: 800 }) }`, never `image` on its own.
 
-Different feed sources (Google Reviews, TikTok, Dribbble) expose different fields. See the Feeds reference for a full list.
+No API key is needed — the Feed ID is the credential and is safe to use in browser code.
 
-#### Notes
+See [API (GraphQL)](api-graphql.md) for the full reference, image transforms, and error handling.
 
-* The current components are **copy-paste**, not an NPM package. You own the code and can edit it freely.
-* Item limits are applied **client-side** — the component fetches the feed and then slices to the requested count. For server-side limiting, use the API directly with a `limit` parameter.
-* Feeds are fetched on the client by default. For server-side rendering or caching, lift the fetch into your framework's data layer.
-* The pattern works for any FeedSpring feed type. Swap the Instagram component for Google Reviews, TikTok, or Dribbble variants from the Components library.
+### Which option to choose
 
-#### When to use the API instead
+|                          | Pre-made component | Attributes        | GraphQL API      |
+| ------------------------ | ------------------ | ----------------- | ---------------- |
+| Code required            | None               | Markup only       | Yes              |
+| Works in Framer          | Yes                | No                | Via a code component |
+| Custom layout            | Within the props   | Full              | Full             |
+| Server-side rendering    | No                 | No                | Yes              |
+| Feed content in page HTML for SEO | No        | No                | Yes              |
+| Data transformation      | No                 | No                | Yes              |
 
-Use the API directly if you want to:
+### Next steps
 
-* Fetch feed data yourself and transform or cache it
-* Render from scratch without starting from a component
-* Use the data outside React, for example in a native app or backend
-* Apply server-side filtering, caching, or pagination
-
-#### Next steps
-
-* View available fields for each feed type
-* Understand how feeds and fields are structured
-* Explore the API for advanced usage
+* [Framer Components](framer-components.md) — using these components in Framer
+* [Attributes (HTML)](attributes-html.md) — the full attribute model
+* [API (GraphQL)](api-graphql.md) — fetching feed data directly
+* [Attributes Reference](../attributes-reference.md) — every field, for every source
